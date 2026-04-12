@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - NutriTrack</title>
+
+  <link rel="stylesheet" href="login.css">
+
+  <!-- Icons (Leaf icon alternative) -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- LOGO -->
+  <div class="header">
+    <div class="logo">
+      🌿
+    </div>
+    <h1>Welcome Back</h1>
+    <p>Log in to your NutriTrack account</p>
+  </div>
+
+  <!-- CARD -->
+  <div class="card">
+
+    <form onsubmit="login(event)">
+
+      <label>Email</label>
+      <input type="email" id="email" placeholder="you@example.com">
+
+      <label>Password</label>
+      <input type="password" id="password" placeholder="••••••••">
+
+      <button type="submit">Log In</button>
+
+    </form>
+
+    <p class="footer-text">
+      Don't have an account?
+      <a href="#">Register</a>
+    </p>
+
+    <p id="error"></p>
+
+  </div>
+
+</div>
+
+
+<script src="login.js"></script>
+</body>
+</html>
