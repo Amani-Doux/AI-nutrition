@@ -1,5 +1,4 @@
-
-  body {
+ body {
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -163,89 +162,77 @@
   bottom: -5px;
   width: 100%;
   height: 2px;
-<<<<<<< Updated upstream
-  background: #16a34a;
-=======
  background: #16a34a;
->>>>>>> Stashed changes
 }
-
-/* container */
-.container1 {
- 
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 0;
+.contact-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 50px 20px;
 }
 
 /* header */
 .header {
   text-align: center;
-  margin-bottom: 20px;
-}
-
-.logo1 {
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, #4CAF50, #2e7d32);
-  color: white;
-  font-size: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 12px;
-  margin: auto;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
 }
 
 .header h1 {
-  margin: 5px 0;
+  font-size: 42px;
+  margin-bottom: 10px;
+  font-weight: 700;
 }
 
 .header p {
   color: gray;
-  font-size: 14px;
+  font-size: 16px;
 }
 
-/* page container */
+/* grid */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
 
-.page {
-  flex: 1;   /* يخلي content ياخذ المساحة */
+/* info */
+.info {
   display: flex;
   flex-direction: column;
+  gap: 25px;
+  padding-left: 5px; 
+}
+
+.info-item {
+  display: flex;
+  gap: 10px;
+  align-items:center;
+}
+
+/* ICON STYLE (pro green) */
+.icon {
+  width: 45px;
+  height: 45px;
+  background: #ecfdf5;
+  border-radius: 10px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-}
-/* header */
-.header {
-  text-align: center;
-  margin-bottom: 10px;
 }
 
-.logo {
-  font-size: 40px;
-}
-
-.header h1 {
-  margin: 5px 0;
-}
-
-/* BIG CARD (هذا المهم) */
-.card {
-  width: 100%;
-  max-width: 420px;   /* كبرناها */
-  background: white;
-  padding: 30px;
-  margin-bottom: 0px;
-  border-radius: 16px; /* شكل modern */
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+.icon i {
+  width: 20px;
+  height: 20px;
+  color: hsl(23, 59%, 50%);
 }
 
 /* form */
+.form-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -256,9 +243,9 @@ label {
   font-size: 14px;
 }
 
-input {
-  padding: 12px;
-  margin-top: 6px;
+input, textarea {
+  margin-top: 5px;
+  padding: 10px;
   border: 1px solid #ddd;
   border-radius: 8px;
 }
@@ -267,37 +254,33 @@ input {
 button {
   margin-top: 20px;
   padding: 12px;
-  background: #4CAF50;
+  background: #22c55e;
   border: none;
   color: white;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 15px;
 }
 
 button:hover {
-  background: #43a047;
+  background: #16a34a;
 }
 
-/* register link */
-.switch {
-  margin-top: 15px;
-  text-align: center;
-  font-size: 14px;
-}
-
-.switch a {
-  color: #4CAF50;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-/* error */
-#error {
-  text-align: center;
-  color: red;
+/* status */
+#status {
   margin-top: 10px;
+  text-align: center;
 }
+
+/* responsive */
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
 
 .footer {
     position: static;
@@ -366,3 +349,13 @@ button:hover {
     text-align: center;
   }
 }
+
+
+
+
+
+
+
+
+
+

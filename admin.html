@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - NutriAI</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+     <nav class="navbar">
+  <div class="container">
+
+    <a href="#" class="logo">NutriAI</a>
+
+    <!-- Desktop links -->
+    <div class="links">
+      <a href="index.html" class="active">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">Blog</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <!-- Buttons -->
+    <div class="buttons">
+      <a href="#" class="btn">Sign In</a>
+      <a href="#" class="btn btn-primary">Get Started</a>
+    </div>
+
+    <!-- Mobile button -->
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="mobile-menu">
+    <a href="#">Home</a>
+    <a href="#">About Us</a>
+    <a href="#">Blog</a>
+    <a href="#">Contact</a>
+
+    <div class="mobile-buttons">
+      <a href="#" class="btn">Sign In</a>
+      <a href="#" class="btn btn-primary">Get Started</a>
+    </div>
+  </div>
+</nav>
+
+
+<div class="dashboard-container">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-avatar">A</div>
+            <h3>Admin Panel</h3>
+            <p>Super Administrator</p>
+        </div>
+        <nav>
+            <a href="#" class="active" data-page="dashboard">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" data-page="users">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <span>Manage Users</span>
+            </a>
+            <a href="#" data-page="nutritionists">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5z"/><path d="M5 22v-2a7 7 0 0 1 14 0v2"/></svg>
+                <span>Manage Nutritionists</span>
+            </a>
+            <a href="#" data-page="subscriptions">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                <span>Manage Subscriptions</span>
+            </a>
+            <a href="#" data-page="system">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H5.78a1.65 1.65 0 0 0-1.51 1 1.65 1.65 0 0 0 .33 1.82l.07.08A10 10 0 0 0 12 17.66a10 10 0 0 0 6.18-2.18l.07-.08z"/></svg>
+                <span>System Management</span>
+            </a>
+            <a href="#" data-page="logout">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                <span>Logout</span>
+            </a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <!-- DASHBOARD PAGE -->
+        <div id="dashboard-page" class="page active-page">
+            <div class="welcome-section"><h1>Admin Dashboard</h1><p>Monitor platform activity and manage resources</p></div>
+            <div class="stats-grid">
+                <div class="stat-card" data-nav="users"><div class="stat-icon"><svg width="28" viewBox="0 0 24 24" fill="none" stroke="#16a34a"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="stat-info"><span class="stat-value" id="totalUsers">0</span><span class="stat-label">Total Users</span></div></div>
+                <div class="stat-card" data-nav="nutritionists"><div class="stat-icon"><svg width="28" viewBox="0 0 24 24" fill="none" stroke="#16a34a"><path d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5z"/><path d="M5 22v-2a7 7 0 0 1 14 0v2"/></svg></div><div class="stat-info"><span class="stat-value" id="totalNutritionists">0</span><span class="stat-label">Nutritionists</span></div></div>
+                <div class="stat-card" data-nav="subscriptions"><div class="stat-icon"><svg width="28" viewBox="0 0 24 24" fill="none" stroke="#16a34a"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><div class="stat-info"><span class="stat-value" id="activeSubscriptions">0</span><span class="stat-label">Active Subs</span></div></div>
+                <div class="stat-card"><div class="stat-icon"><svg width="28" viewBox="0 0 24 24" fill="none" stroke="#16a34a"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><div class="stat-info"><span class="stat-value" id="sysHealth">✓</span><span class="stat-label">System Status</span></div></div>
+            </div>
+            <div class="dashboard-cards">
+                <div class="card" data-page="users"><div class="card-icon"><svg width="40" viewBox="0 0 24 24" fill="none" stroke="#16a34a"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><h3>Manage Users</h3><p>View, add, edit platform users</p><button class="card-btn">Access</button></div>
+                <div class="card" data-page="nutritionists"><div class="card-icon"><svg width="40" viewBox="0 0 24 24" fill="none" stroke="#16a34a"><path d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5z"/><path d="M5 22v-2a7 7 0 0 1 14 0v2"/></svg></div><h3>Nutritionists</h3><p>Manage expert profiles</p><button class="card-btn">Access</button></div>
+                <div class="card" data-page="subscriptions"><div class="card-icon"><svg width="40" viewBox="0 0 24 24" fill="none" stroke="#16a34a"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><h3>Subscriptions</h3><p>Plans & active memberships</p><button class="card-btn">Access</button></div>
+                <div class="card" data-page="system"><div class="card-icon"><svg width="40" viewBox="0 0 24 24" fill="none" stroke="#16a34a"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H5.78a1.65 1.65 0 0 0-1.51 1 1.65 1.65 0 0 0 .33 1.82l.07.08A10 10 0 0 0 12 17.66a10 10 0 0 0 6.18-2.18l.07-.08z"/></svg></div><h3>System</h3><p>Logs & configuration</p><button class="card-btn">Access</button></div>
+            </div>
+        </div>
+
+        <!-- MANAGE USERS -->
+        <div id="users-page" class="page"><div class="page-header"><div><h1>Manage Users</h1><p class="page-description">Registered platform users</p></div><button class="add-btn" id="addUserBtn">+ New User</button></div><div class="search-bar"><input type="text" id="searchUser" placeholder="Search by name or email..." class="search-input"></div><div id="usersList"></div></div>
+
+        <!-- MANAGE NUTRITIONISTS -->
+        <div id="nutritionists-page" class="page"><div class="page-header"><div><h1>Manage Nutritionists</h1><p class="page-description">Professional nutrition experts</p></div><button class="add-btn" id="addNutritionistBtn">+ Add Nutritionist</button></div><div class="search-bar"><input type="text" id="searchNutritionist" placeholder="Search nutritionist..." class="search-input"></div><div id="nutritionistsList"></div></div>
+
+        <!-- MANAGE SUBSCRIPTIONS -->
+        <div id="subscriptions-page" class="page"><div class="page-header"><div><h1>Manage Subscriptions</h1><p class="page-description">User memberships and plans</p></div><button class="add-btn" id="addSubscriptionBtn">+ New Subscription</button></div><div class="search-bar"><input type="text" id="searchSubscription" placeholder="Search by user or plan..." class="search-input"></div><div id="subscriptionsList"></div></div>
+
+        <!-- SYSTEM MANAGEMENT -->
+        <div id="system-page" class="page"><div class="page-header"><div><h1>System Management</h1><p class="page-description">Configuration & audit logs</p></div></div><div class="system-grid"><div class="config-card"><h3>⚙️ System Configuration</h3><form id="systemConfigForm"><div class="form-group"><label>Platform Name</label><input type="text" id="siteName" value="NutriAI" class="search-input"></div><div class="form-group"><label>Support Email</label><input type="email" id="supportEmail" value="admin@nutriai.com"></div><div class="form-group"><label>Maintenance Mode</label><select id="maintenanceMode"><option value="0">Off</option><option value="1">On</option></select></div><button type="submit" class="submit-btn">Save Settings</button></form></div><div class="logs-card"><h3>📋 System Logs <button type="button" id="clearLogsBtn" class="clear-logs-btn">Clear Logs</button></h3><div id="systemLogsContainer" style="max-height: 300px; overflow-y: auto;"></div></div></div></div>
+    </main>
+</div>
+
+
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-col">
+      <h3>NutriAI</h3>
+      <p>Cultivating health, one meal at a time.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Platform</h4>
+      <a href="#">About Us</a>
+      <a href="#">Blog</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Services</h4>
+      <p>AI Calorie Tracking</p>
+      <p>Nutrition Consultation</p>
+      <p>Personalized Plans</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <p>Privacy Policy</p>
+      <p>Terms of Service</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © <span id="year"></span> NutriAI. All rights reserved.
+  </div>
+</footer>
+
+
+<script src="admin.js"></script>
+</body>
+</html>
