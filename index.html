@@ -1,1 +1,55 @@
-<h1>Hello Frontend</h1>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NutriAI Navbar</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<nav class="navbar">
+  <div class="container">
+
+    <a href="#" class="logo">NutriAI</a>
+
+    <!-- Desktop links -->
+    <div class="links">
+      <a href="index.html" class="active">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">Blog</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <!-- Buttons -->
+    <div class="buttons">
+      <a href="#" class="btn">Sign In</a>
+      <a href="#" class="btn btn-primary">Get Started</a>
+    </div>
+
+    <!-- Mobile button -->
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="mobile-menu">
+    <a href="#">Home</a>
+    <a href="#">About Us</a>
+    <a href="#">Blog</a>
+    <a href="#">Contact</a>
+
+    <div class="mobile-buttons">
+      <a href="#" class="btn">Sign In</a>
+      <a href="#" class="btn btn-primary">Get Started</a>
+    </div>
+  </div>
+</nav>
+
+<script src="script.js"></script>
+
+</body>
+</html>
