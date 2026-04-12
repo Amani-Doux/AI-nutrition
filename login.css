@@ -1,16 +1,181 @@
-body {
+
+  body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f5f6f7;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
 }
 
-/* container */
+/* NAVBAR */
+.navbar {
+  background: white;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
 .container {
-  min-height: 100vh;
+  max-width: 1200px;
+  margin: auto;
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* LOGO */
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  text-decoration: none;
+  color: #16a34a; /* green */
+  letter-spacing: 1px;
+}
+
+/* LINKS */
+.links {
+  display: flex;
+  gap: 35px;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.links a {
+  text-decoration: none;
+  color: #555;
+  position: relative;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+/* hover animation underline */
+.links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background: #16a34a;
+  transition: 0.3s;
+}
+
+.links a:hover {
+  color: #16a34a;
+}
+
+.links a:hover::after {
+  width: 100%;
+}
+
+/* active link */
+.active {
+  color: #16a34a;
+}
+
+/* BUTTONS */
+.buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.btn {
+  padding: 9px 18px;
+  border-radius: 25px;
+  font-size: 13px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  color: #333;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+.btn:hover {
+  border-color: #16a34a;
+  color: #16a34a;
+  transform: translateY(-2px);
+}
+
+/* PRIMARY BUTTON */
+.btn-primary {
+  background: #16a34a;
+  color: white;
+  border: none;
+  box-shadow: 0 5px 15px rgba(22,163,74,0.3);
+}
+
+.btn-primary:hover {
+  background: #128a3d;
+  color: white;
+}
+
+/* MOBILE */
+.menu-btn {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: #16a34a;
+}
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  padding: 15px 24px;
+  gap: 12px;
+  background: white;
+}
+
+.mobile-menu a {
+  text-decoration: none;
+  color: #555;
+  text-transform: uppercase;
+}
+
+.mobile-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .links, .buttons {
+    display: none;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+}
+.links a.active {
+  color: #16a34a;
+  font-weight: 700;
+}
+
+/* underline ثابت للactive */
+.links a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 2px;
+ -- background: #16a34a;
+}
+
+
+/* container */
+.container1 {
+ 
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 40px 0;
 }
 
 /* header */
@@ -19,7 +184,7 @@ body {
   margin-bottom: 20px;
 }
 
-.logo {
+.logo1 {
   width: 60px;
   height: 60px;
   background: linear-gradient(135deg, #4CAF50, #2e7d32);
@@ -42,13 +207,38 @@ body {
   font-size: 14px;
 }
 
-/* card */
+/* page container */
+
+.page {
+  flex: 1;   /* يخلي content ياخذ المساحة */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+/* header */
+.header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.logo {
+  font-size: 40px;
+}
+
+.header h1 {
+  margin: 5px 0;
+}
+
+/* BIG CARD (هذا المهم) */
 .card {
-  background: white;
-  padding: 25px;
-  border-radius: 12px;
   width: 100%;
-  max-width: 380px;
+  max-width: 420px;   /* كبرناها */
+  background: white;
+  padding: 30px;
+  margin-bottom: 0px;
+  border-radius: 16px; /* شكل modern */
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
@@ -59,13 +249,13 @@ form {
 }
 
 label {
-  margin-top: 10px;
+  margin-top: 12px;
   font-size: 14px;
 }
 
 input {
-  padding: 10px;
-  margin-top: 5px;
+  padding: 12px;
+  margin-top: 6px;
   border: 1px solid #ddd;
   border-radius: 8px;
 }
@@ -74,26 +264,26 @@ input {
 button {
   margin-top: 20px;
   padding: 12px;
-  border: none;
-  border-radius: 8px;
   background: #4CAF50;
+  border: none;
   color: white;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 button:hover {
-  background: #45a049;
+  background: #43a047;
 }
 
-/* footer */
-.footer-text {
-  text-align: center;
+/* register link */
+.switch {
   margin-top: 15px;
+  text-align: center;
   font-size: 14px;
 }
 
-.footer-text a {
+.switch a {
   color: #4CAF50;
   text-decoration: none;
   font-weight: bold;
@@ -102,86 +292,73 @@ button:hover {
 /* error */
 #error {
   text-align: center;
-  margin-top: 10px;
   color: red;
+  margin-top: 10px;
 }
-/* FOOTER */
+
 .footer {
-  background: #f3f4f6;
-  border-top: 1px solid #ddd;
-  margin-top: 50px;
-  padding: 40px 0;
+    position: static;
+  margin-top: 60px;
+  background: white;
+  border-top: 1px solid #e5e5e5;
 }
 
-/* container */
-.container1 {
-  width: 90%;
-  max-width: 1100px;
+.footer-container {
+  max-width: 1200px;
   margin: auto;
-}
-
-/* GRID */
-.grid1 {
+  padding: 60px 24px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
+  gap: 40px;
 }
 
-/* logo */
-.logo1 {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-/* text */
-.text1 {
-  font-size: 13px;
-  color: gray;
-  margin-top: 10px;
-}
-
-/* titles */
-h4 {
+/* logo footer */
+.footer-col h3 {
+  color: #16a34a;
+  font-size: 22px;
   margin-bottom: 10px;
 }
 
+.footer-col p {
+  color: #666;
+  font-size: 14px;
+  margin: 6px 0;
+}
+
+/* titles */
+.footer-col h4 {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 12px;
+}
+
 /* links */
-a {
+.footer-col a {
   display: block;
-  margin-bottom: 8px;
   text-decoration: none;
-  color: gray;
-  font-size: 14px;
-}
-
-a:hover {
-  color: green;
-}
-
-/* spans */
-span {
-  display: block;
+  color: #555;
   margin-bottom: 8px;
-  color: gray;
-  font-size: 14px;
+  transition: 0.3s;
+}
+
+.footer-col a:hover {
+  color: #16a34a;
+  padding-left: 5px;
 }
 
 /* bottom */
-.bottom {
-  border-top: 1px solid #ddd;
-  margin-top: 30px;
-  padding-top: 15px;
+.footer-bottom {
   text-align: center;
+  padding: 18px;
+  border-top: 1px solid #eee;
   font-size: 12px;
-  color: gray;
+  color: #888;
 }
 
 /* responsive */
 @media (max-width: 768px) {
-  .grid {
+  .footer-container {
     grid-template-columns: 1fr;
     text-align: center;
   }

@@ -1,4 +1,12 @@
-function login(event) {
+function toggleMenu() {
+  const menu = document.getElementById("mobileMenu");
+
+  if (menu.style.display === "flex") {
+    menu.style.display = "none";
+  } else {
+    menu.style.display = "flex";
+  }
+}function login(event) {
   event.preventDefault();
 
   let email = document.getElementById("email").value;
@@ -7,24 +15,15 @@ function login(event) {
 
   if (email === "" || password === "") {
     error.textContent = "Please fill all fields";
-    error.style.color = "red";
     return;
   }
 
-  if (password.length < 6) {
-    error.textContent = "Password must be at least 6 characters";
-    error.style.color = "red";
-    return;
-  }
-
+  // fake login check
   error.style.color = "green";
   error.textContent = "Login successful ✔";
 
-  // redirect later
+  // redirect example (dashboard later)
   // window.location.href = "dashboard.html";
-}// small enhancement: smooth scroll for links
-document.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", function(e) {
-    console.log("Navigating to:", this.textContent);
-  });
-});
+}
+
+document.getElementById("year").textContent = new Date().getFullYear();

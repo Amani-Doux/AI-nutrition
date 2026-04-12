@@ -12,16 +12,52 @@
 </head>
 
 <body>
+    <nav class="navbar">
+  <div class="container">
 
-<div class="container">
+    <a href="#" class="logo">NutriAI</a>
+
+    <!-- Desktop links -->
+    <div class="links">
+      <a href="index.html" class="active">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">Blog</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <!-- Buttons -->
+    <div class="buttons">
+      <a href="#" class="btn">Sign In</a>
+      <a href="#" class="btn btn-primary">Get Started</a>
+    </div>
+
+    <!-- Mobile button -->
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="mobile-menu">
+    <a href="#">Home</a>
+    <a href="#">About Us</a>
+    <a href="#">Blog</a>
+    <a href="#">Contact</a>
+
+    <div class="mobile-buttons">
+      <a href="#" class="btn">Sign In</a>
+      <a href="#" class="btn btn-primary">Get Started</a>
+    </div>
+  </div>
+</nav>
+<div class="container1">
 
   <!-- LOGO -->
   <div class="header">
-    <div class="logo">
+    <div class="logo1">
       🌿
     </div>
     <h1>Welcome Back</h1>
-    <p>Log in to your NutriTrack account</p>
+    <p>Log in to your NutriAI account</p>
   </div>
 
   <!-- CARD -->
@@ -39,16 +75,51 @@
 
     </form>
 
-    <p class="footer-text">
+ 
+   <p class="switch">
       Don't have an account?
-      <a href="#">Register</a>
+      <a href="register.html">Create account</a>
     </p>
 
     <p id="error"></p>
+</div>
+
+</div>
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-col">
+      <h3>NutriAI</h3>
+      <p>Cultivating health, one meal at a time.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Platform</h4>
+      <a href="#">About Us</a>
+      <a href="#">Blog</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Services</h4>
+      <p>AI Calorie Tracking</p>
+      <p>Nutrition Consultation</p>
+      <p>Personalized Plans</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <p>Privacy Policy</p>
+      <p>Terms of Service</p>
+    </div>
 
   </div>
 
-</div>
+  <div class="footer-bottom">
+    © <span id="year"></span> NutriAI. All rights reserved.
+  </div>
+</footer>
+
 
 
 <script src="login.js"></script>
