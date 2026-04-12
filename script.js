@@ -7,3 +7,4 @@ function toggleMenu() {
     menu.style.display = "flex";
   }
 }
+document.getElementById("year").textContent = new Date().getFullYear();

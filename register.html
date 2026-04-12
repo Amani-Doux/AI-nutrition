@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register | NutriAI</title>
+  <link rel="stylesheet" href="register.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ========== NAVBAR (unchanged) ========== -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="#" class="logo">NutriAI</a>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">Blog</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="buttons">
+      <a href="#" class="btn-outline">Sign In</a>
+      <a href="register.html" class="btn-primary-nav">Get Started</a>
+    </div>
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+  </div>
+  <div id="mobileMenu" class="mobile-menu">
+    <a href="#">Home</a>
+    <a href="#">About Us</a>
+    <a href="#">Blog</a>
+    <a href="#">Contact</a>
+    <div class="mobile-buttons">
+      <a href="#" class="btn-outline">Sign In</a>
+      <a href="#" class="btn-primary-nav">Get Started</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ========== MAIN REGISTER SECTION ========== -->
+<div class="container">
+  <!-- Header section -->
+  <div class="register-header">
+    <div class="badge">Welcome to NutriAI</div>
+    <h1>Begin your journey</h1>
+    <p>Create your account to get started with personalized nutrition</p>
+  </div>
+
+  <!-- Progress indicator -->
+  <div class="progress-steps">
+    <div class="step active">
+      <span class="step-number">1</span>
+      <span class="step-label">Account</span>
+    </div>
+    <div class="step">
+      <span class="step-number">2</span>
+      <span class="step-label">Preferences</span>
+    </div>
+    <div class="step">
+      <span class="step-number">3</span>
+      <span class="step-label">Complete</span>
+    </div>
+  </div>
+
+  <form onsubmit="return false" id="registerForm">
+    <!-- First + Last Name row -->
+    <div class="row">
+      <div class="input-group">
+        <label>First Name</label>
+        <input type="text" placeholder="Jane" id="firstName" />
+      </div>
+      <div class="input-group">
+        <label>Last Name</label>
+        <input type="text" placeholder="Doe" id="lastName" />
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="input-group">
+      <label>Email Address</label>
+      <input type="email" placeholder="you@example.com" id="email" />
+      <div class="input-hint">We'll never share your email with anyone else.</div>
+    </div>
+
+    <!-- Password with strength meter -->
+    <div class="input-group">
+      <label>Password</label>
+      <div class="password-box">
+        <input id="password" type="password" placeholder="Create a strong password" />
+        <button type="button" onclick="togglePassword()" class="toggle-pwd">👁</button>
+      </div>
+      <div class="password-strength">
+        <div class="strength-bar" id="strengthBar"></div>
+        <span class="strength-text" id="strengthText">Enter password</span>
+      </div>
+      <div class="input-hint">Use 8+ characters with letters & numbers</div>
+    </div>
+
+    <!-- Confirm Password -->
+    <div class="input-group">
+      <label>Confirm Password</label>
+      <div class="password-box">
+        <input id="confirmPassword" type="password" placeholder="Confirm your password" />
+        <button type="button" onclick="toggleConfirmPassword()" class="toggle-pwd">👁</button>
+      </div>
+      <div class="match-message" id="matchMessage"></div>
+    </div>
+
+    <!-- Goal -->
+    <div class="input-group">
+      <label>Health Goal</label>
+      <select id="goal">
+        <option value="">Select your primary goal</option>
+        <option value="lose">Lose weight - Shed those extra pounds</option>
+        <option value="maintain">Maintain weight - Stay healthy & balanced</option>
+        <option value="gain">Gain weight - Build muscle & mass</option>
+      </select>
+    </div>
+
+    <!-- Activity Level -->
+    <div class="input-group">
+      <label>Activity Level</label>
+      <select id="activity">
+        <option value="">Select your daily activity</option>
+        <option value="sedentary">Sedentary - Office job, little exercise</option>
+        <option value="light">Light - Exercise 1-3 days/week</option>
+        <option value="moderate">Moderate - Exercise 3-5 days/week</option>
+        <option value="active">Active - Daily exercise or physical job</option>
+      </select>
+    </div>
+
+    <!-- Dietary Preference -->
+    <div class="input-group">
+      <label>Dietary Preference</label>
+      <div class="diet-buttons">
+        <button type="button" class="diet-option" data-diet="none">No Restrictions</button>
+        <button type="button" class="diet-option" data-diet="vegetarian">Vegetarian</button>
+        <button type="button" class="diet-option" data-diet="vegan">Vegan</button>
+        <button type="button" class="diet-option" data-diet="keto">Keto</button>
+      </div>
+      <input type="hidden" id="dietaryPref" value="none" />
+    </div>
+
+    <!-- Terms & Conditions -->
+    <div class="terms-group">
+      <label class="checkbox-label">
+        <input type="checkbox" id="termsCheckbox" />
+        <span class="checkmark"></span>
+        <span class="terms-text">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+      </label>
+    </div>
+
+    <!-- Create Account button -->
+    <button type="submit" class="btn" id="submitBtn">
+      <span class="btn-text">Create Account</span>
+      <span class="btn-loader" style="display: none;"></span>
+    </button>
+  </form>
+
+  <!-- Already have an account? Sign in -->
+  <p class="bottom-text">
+    Already have an account?
+    <a href="login.html">Sign in</a>
+  </p>
+</div>
+
+<!-- ========== FOOTER (unchanged) ========== -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h3>NutriAI</h3>
+      <p>Cultivating health, one meal at a time.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Platform</h4>
+      <a href="#">About Us</a>
+      <a href="#">Blog</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <p>AI Calorie Tracking</p>
+      <p>Nutrition Consultation</p>
+      <p>Personalized Plans</p>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <p>Privacy Policy</p>
+      <p>Terms of Service</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © <span id="year"></span> NutriAI. All rights reserved.
+  </div>
+</footer>
+
+<script src="register.js"></script>
+</body>
+</html>
