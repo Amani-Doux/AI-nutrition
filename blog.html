@@ -2,45 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NutriAI Navbar</title>
-
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>NutriAI | Blog & Insights</title>
+  <link rel="stylesheet" href="blog.css" />
 </head>
-
 <body>
 
+<!-- ====================== NAVBAR ====================== -->
 <nav class="navbar">
   <div class="container">
-
     <a href="#" class="logo">NutriAI</a>
-
-    <!-- Desktop links -->
     <div class="links">
-      <a href="index.html" class="active">Home</a>
+      <a href="index.html">Home</a>
       <a href="#">About Us</a>
-      <a href="blog.html">Blog</a>
+      <a href="#" class="active">Blog</a>
       <a href="#">Contact</a>
     </div>
-
-    <!-- Buttons -->
     <div class="buttons">
       <a href="login.html" class="btn">Sign In</a>
       <a href="register.html" class="btn btn-primary">Get Started</a>
     </div>
-
-    <!-- Mobile button -->
     <div class="menu-btn" onclick="toggleMenu()">☰</div>
-
   </div>
-
-  <!-- Mobile menu -->
   <div id="mobileMenu" class="mobile-menu">
-    <a href="#">Home</a>
+    <a href="index.html">Home</a>
     <a href="#">About Us</a>
-    <a href="#">Blog</a>
+    <a href="#" class="active">Blog</a>
     <a href="#">Contact</a>
-
     <div class="mobile-buttons">
       <a href="#" class="btn">Sign In</a>
       <a href="#" class="btn btn-primary">Get Started</a>
@@ -48,43 +36,47 @@
   </div>
 </nav>
 
-<!-- ================= FOOTER ================= -->
+<!-- ====================== BLOG SECTION ====================== -->
+<main class="blog-main">
+  <div class="blog-header">
+    <h1>Blog & Insights</h1>
+    <div class="subhead">
+      Educational resources on nutrition, healthy recipes, and wellness insights to support your journey.
+    </div>
+  </div>
+  <div class="blog-grid" id="blogGridContainer"></div>
+</main>
+
+<!-- ====================== FOOTER ====================== -->
 <footer class="footer">
   <div class="footer-container">
-
     <div class="footer-col">
       <h3>NutriAI</h3>
       <p>Cultivating health, one meal at a time.</p>
     </div>
-
     <div class="footer-col">
       <h4>Platform</h4>
       <a href="#">About Us</a>
       <a href="#">Blog</a>
       <a href="#">Contact</a>
     </div>
-
     <div class="footer-col">
       <h4>Services</h4>
       <p>AI Calorie Tracking</p>
       <p>Nutrition Consultation</p>
       <p>Personalized Plans</p>
     </div>
-
     <div class="footer-col">
       <h4>Legal</h4>
       <p>Privacy Policy</p>
       <p>Terms of Service</p>
     </div>
-
   </div>
-
   <div class="footer-bottom">
     © <span id="year"></span> NutriAI. All rights reserved.
   </div>
 </footer>
 
-<script src="script.js"></script>
-
+<script src="blog.js"></script>
 </body>
 </html>

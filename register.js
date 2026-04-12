@@ -95,26 +95,10 @@ function checkPasswordMatch() {
 
 confirmInput.addEventListener('input', checkPasswordMatch);
 
-// Dietary preference buttons
-const dietOptions = document.querySelectorAll('.diet-option');
-const dietaryPrefInput = document.getElementById('dietaryPref');
-
-dietOptions.forEach(option => {
-  option.addEventListener('click', function() {
-    dietOptions.forEach(btn => btn.classList.remove('active'));
-    this.classList.add('active');
-    dietaryPrefInput.value = this.dataset.diet;
-  });
-});
-
-// Set default active for "No Restrictions"
-document.querySelector('.diet-option[data-diet="none"]').classList.add('active');
-
 // Form validation and submission
 const submitBtn = document.getElementById('submitBtn');
 const btnText = submitBtn.querySelector('.btn-text');
 const btnLoader = submitBtn.querySelector('.btn-loader');
-const termsCheckbox = document.getElementById('termsCheckbox');
 
 submitBtn.addEventListener('click', function() {
   const firstName = document.getElementById('firstName').value.trim();
@@ -123,8 +107,6 @@ submitBtn.addEventListener('click', function() {
   const password = passwordInput.value;
   const confirm = confirmInput.value;
   const goal = document.getElementById('goal').value;
-  const activity = document.getElementById('activity').value;
-  const terms = termsCheckbox.checked;
   
   // Validation
   if (!firstName) {
@@ -175,17 +157,6 @@ submitBtn.addEventListener('click', function() {
     return;
   }
   
-  if (!activity) {
-    showError('Please select your activity level');
-    document.getElementById('activity').focus();
-    return;
-  }
-  
-  if (!terms) {
-    showError('Please agree to the Terms of Service and Privacy Policy');
-    return;
-  }
-  
   // Show loading state
   btnText.textContent = 'Creating Account';
   btnLoader.style.display = 'inline-block';
@@ -198,9 +169,6 @@ submitBtn.addEventListener('click', function() {
     submitBtn.disabled = false;
     
     showSuccess('Account created successfully!');
-    
-    // Optional: redirect after success
-    // setTimeout(() => { window.location.href = 'dashboard.html'; }, 1500);
   }, 1500);
 });
 
