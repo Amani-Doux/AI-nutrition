@@ -3,124 +3,114 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - NutriTrack</title>
-
+  <title>Login - NutriAI</title>
   <link rel="stylesheet" href="login.css">
-
-  <!-- Icons (Leaf icon alternative) -->
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-
 <body>
-    <nav class="navbar">
+
+<!-- NAVBAR (fixed: no active class on login page) -->
+<nav class="navbar">
   <div class="container">
-
     <a href="#" class="logo">NutriAI</a>
-
-    <!-- Desktop links -->
     <div class="links">
       <a href="index.html">Home</a>
       <a href="aboutus.html">About Us</a>
       <a href="blog.html">Blog</a>
       <a href="contactus.html">Contact</a>
     </div>
-
-    <!-- Buttons -->
     <div class="buttons">
       <a href="login.html" class="btn">Sign In</a>
       <a href="register.html" class="btn btn-primary">Get Started</a>
     </div>
-
-    <!-- Mobile button -->
     <div class="menu-btn" onclick="toggleMenu()">☰</div>
-
   </div>
-
-  <!-- Mobile menu -->
   <div id="mobileMenu" class="mobile-menu">
-    <a href="#">Home</a>
-    <a href="#">About Us</a>
-    <a href="#">Blog</a>
-    <a href="#">Contact</a>
-
+    <a href="index.html">Home</a>
+    <a href="aboutus.html">About Us</a>
+    <a href="blog.html">Blog</a>
+    <a href="contactus.html">Contact</a>
     <div class="mobile-buttons">
-      <a href="#" class="btn">Sign In</a>
-      <a href="#" class="btn btn-primary">Get Started</a>
+      <a href="login.html" class="btn">Sign In</a>
+      <a href="register.html" class="btn btn-primary">Get Started</a>
     </div>
   </div>
 </nav>
-<div class="container1">
 
-  <!-- LOGO -->
-  <div class="header">
-    <div class="logo1">
-      🌿
+<!-- MAIN CONTENT (centered vertically) -->
+<main class="main-content">
+  <div class="login-wrapper">
+    <div class="header">
+      <h1>Welcome Back</h1>
+      <p>Log in to your NutriAI account</p>
     </div>
-    <h1>Welcome Back</h1>
-    <p>Log in to your NutriAI account</p>
+
+    <div class="card">
+      <form id="loginForm" onsubmit="login(event)">
+        <label>Email</label>
+        <input type="email" id="email" placeholder="you@example.com" autocomplete="email">
+        <div class="error-message" id="emailError"></div>
+
+        <label>Password</label>
+        <div class="password-wrapper">
+          <input type="password" id="password" placeholder="••••••••" autocomplete="current-password">
+          <button type="button" class="toggle-password" onclick="togglePasswordVisibility()">
+            <i data-lucide="eye"></i>
+          </button>
+        </div>
+        <div class="error-message" id="passwordError"></div>
+
+        <div class="options">
+          <label class="remember">
+            <input type="checkbox" id="rememberMe"> Remember Me
+          </label>
+          <a href="#" class="forgot">Forgot Password?</a>
+        </div>
+
+        <button type="submit" id="loginBtn">
+          <span id="btnText">Log In</span>
+          <span id="btnLoader" class="loader hidden"></span>
+        </button>
+      </form>
+
+      <p class="switch">
+        Don't have an account?
+        <a href="register.html">Create account</a>
+      </p>
+
+      <p id="error"></p>
+    </div>
   </div>
+</main>
 
-  <!-- CARD -->
-  <div class="card">
-
-    <form onsubmit="login(event)">
-
-      <label>Email</label>
-      <input type="email" id="email" placeholder="you@example.com">
-
-      <label>Password</label>
-      <input type="password" id="password" placeholder="••••••••">
-
-      <button type="submit">Log In</button>
-
-    </form>
-
- 
-   <p class="switch">
-      Don't have an account?
-      <a href="register.html">Create account</a>
-    </p>
-
-    <p id="error"></p>
-</div>
-
-</div>
 <footer class="footer">
   <div class="footer-container">
-
     <div class="footer-col">
       <h3>NutriAI</h3>
       <p>Cultivating health, one meal at a time.</p>
     </div>
-
     <div class="footer-col">
       <h4>Platform</h4>
       <a href="aboutus.html">About Us</a>
       <a href="blog.html">Blog</a>
       <a href="contactus.html">Contact</a>
     </div>
-
     <div class="footer-col">
       <h4>Services</h4>
       <p>AI Calorie Tracking</p>
       <p>Nutrition Consultation</p>
       <p>Personalized Plans</p>
     </div>
-
     <div class="footer-col">
       <h4>Legal</h4>
       <p>Privacy Policy</p>
       <p>Terms of Service</p>
     </div>
-
   </div>
-
   <div class="footer-bottom">
     © <span id="year"></span> NutriAI. All rights reserved.
   </div>
 </footer>
-
-
 
 <script src="login.js"></script>
 </body>

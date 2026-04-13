@@ -1,13 +1,17 @@
-// simple animation on scroll
+// Initialize Lucide icons (replaces <i> with SVG)
+lucide.createIcons();
+
+// Scroll animation for value cards
 window.addEventListener("scroll", () => {
-  let cards = document.querySelectorAll(".card");
-
+  const cards = document.querySelectorAll(".card");
   cards.forEach(card => {
-    let position = card.getBoundingClientRect().top;
-
-    if (position < window.innerHeight - 50) {
+    const position = card.getBoundingClientRect().top;
+    if (position < window.innerHeight - 80) {
       card.style.transform = "translateY(0)";
       card.style.opacity = "1";
     }
   });
-});lucide.createIcons();
+});
+
+// Trigger animation on load (in case some cards are already visible)
+window.dispatchEvent(new Event('scroll'));

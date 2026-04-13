@@ -47,7 +47,6 @@
     </div>
   </div>
 </nav>
- 
 <div class="contact-container">
 
   <!-- TITLE -->
@@ -56,70 +55,87 @@
     <p>Have questions or need support? We'd love to hear from you.</p>
   </div>
 
-  <!-- CONTENT -->
+  <!-- MAIN GRID: CONTACT INFO + FORM -->
   <div class="contact-grid">
 
-    <!-- LEFT (INFO) -->
+    <!-- LEFT: CONTACT INFO + SOCIAL (map removed) -->
     <div class="info">
 
+      <!-- Email -->
       <div class="info-item">
-        <div class="icon">
-          <i data-lucide="mail"></i>
-        </div>
-        <div>
-          <h3>Email</h3>
-          <p>support@nutritrack.com</p>
-        </div>
+        <div class="icon"><i data-lucide="mail"></i></div>
+        <div><h3>Email</h3><p>support@nutritrack.com</p></div>
       </div>
 
+      <!-- Phone -->
       <div class="info-item">
-        <div class="icon">
-          <i data-lucide="phone"></i>
-        </div>
-        <div>
-          <h3>Phone</h3>
-          <p>+213 555 123 456</p>
-        </div>
+        <div class="icon"><i data-lucide="phone"></i></div>
+        <div><h3>Phone</h3><p>+213 555 123 456</p></div>
       </div>
 
+      <!-- Address -->
       <div class="info-item">
-        <div class="icon">
-          <i data-lucide="map-pin"></i>
-        </div>
-        <div>
-          <h3>Address</h3>
-          <p>University of Constantine 2, Algeria</p>
+        <div class="icon"><i data-lucide="map-pin"></i></div>
+        <div><h3>Address</h3><p>University of Constantine 2, Algeria</p></div>
+      </div>
+
+      <!-- Follow Us (social icons only) -->
+      <div class="social-section">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#" class="social-icon" data-lucide="facebook" target="_blank"></a>
+          <a href="#" class="social-icon" data-lucide="instagram" target="_blank"></a>
+          <a href="#" class="social-icon" data-lucide="twitter" target="_blank"></a>
+          <a href="#" class="social-icon" data-lucide="linkedin" target="_blank"></a>
         </div>
       </div>
 
     </div>
 
-    <!-- RIGHT (FORM) -->
+    <!-- RIGHT: CONTACT FORM (enhanced) -->
     <div class="form-card">
+      <form id="contactForm" onsubmit="sendMessage(event)">
+        <label>Full Name *</label>
+        <input type="text" id="name" placeholder="Your name" autocomplete="name">
+        <div class="error-message" id="nameError"></div>
 
-      <form onsubmit="sendMessage(event)">
+        <label>Email Address *</label>
+        <input type="email" id="email" placeholder="you@example.com" autocomplete="email">
+        <div class="error-message" id="emailError"></div>
 
-        <label>Name</label>
-        <input type="text" id="name" placeholder="Your name">
+        <label>Message *</label>
+        <textarea id="message" rows="5" placeholder="How can we help?" maxlength="500"></textarea>
+        <div class="char-counter"><span id="charCount">0</span>/500 characters</div>
+        <div class="error-message" id="messageError"></div>
 
-        <label>Email</label>
-        <input type="email" id="email" placeholder="you@example.com">
-
-        <label>Message</label>
-        <textarea id="message" rows="5" placeholder="How can we help?"></textarea>
-
-        <button type="submit">Send Message</button>
+        <button type="submit" id="submitBtn">
+          <span id="btnText">Send Message</span>
+          <span id="btnLoader" class="loader hidden"></span>
+        </button>
 
         <p id="status"></p>
-
       </form>
-
     </div>
+  </div>
 
+  <!-- FAQ SECTION (accordion) -->
+  <div class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <div class="faq-question"> How quickly do you reply?</div>
+      <div class="faq-answer">We typically respond within 24 hours on business days.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question"> Can I book a consultation?</div>
+      <div class="faq-answer">Absolutely! Use the contact form and our team will schedule a call.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Is there a mobile app?</div>
+      <div class="faq-answer">Yes, NutriTrack is available on iOS and Android. More details on our homepage.</div>
+    </div>
   </div>
 
 </div>
-
 
 
 
