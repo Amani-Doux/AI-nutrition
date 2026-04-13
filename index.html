@@ -1,90 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NutriAI Navbar</title>
-
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>NutriAI | Smart Nutrition & Wellness</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
+<!-- ========== NAVBAR ========== -->
 <nav class="navbar">
-  <div class="container">
-
-    <a href="#" class="logo">NutriAI</a>
-
-    <!-- Desktop links -->
-    <div class="links">
-      <a href="index.html" class="active">Home</a>
-      <a href="#">About Us</a>
-      <a href="blog.html">Blog</a>
-      <a href="#">Contact</a>
+    <div class="container">
+        <a href="index.html" class="logo" id="homeLogo">NutriAI</a>
+        <!-- Desktop links -->
+        <div class="links">
+            <a href="index.html" class="active" id="navHome">Home</a>
+            <a href="aboutus.html" id="navAbout">About Us</a>
+            <a href="blog.html" id="navBlog">Blog</a>
+            <a href="contactus.html" id="navContact">Contact</a>
+        </div>
+        <!-- Buttons -->
+        <div class="buttons">
+            <a href="login.html" class="btn" id="signInBtn">Sign In</a>
+            <a href="register.html" class="btn btn-primary" id="getStartedBtn">Get Started</a>
+        </div>
+        <!-- Mobile button -->
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
     </div>
-
-    <!-- Buttons -->
-    <div class="buttons">
-      <a href="login.html" class="btn">Sign In</a>
-      <a href="register.html" class="btn btn-primary">Get Started</a>
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="mobile-menu">
+        <a href="index.html">Home</a>
+        <a href="aboutus.html">About Us</a>
+        <a href="blog.html">Blog</a>
+        <a href="contactus.html">Contact</a>
+        <div class="mobile-buttons">
+            <a href="login.html" class="btn">Sign In</a>
+            <a href="register.html" class="btn btn-primary">Get Started</a>
+        </div>
     </div>
-
-    <!-- Mobile button -->
-    <div class="menu-btn" onclick="toggleMenu()">☰</div>
-
-  </div>
-
-  <!-- Mobile menu -->
-  <div id="mobileMenu" class="mobile-menu">
-    <a href="#">Home</a>
-    <a href="#">About Us</a>
-    <a href="#">Blog</a>
-    <a href="#">Contact</a>
-
-    <div class="mobile-buttons">
-      <a href="#" class="btn">Sign In</a>
-      <a href="#" class="btn btn-primary">Get Started</a>
-    </div>
-  </div>
 </nav>
 
-<!-- ================= FOOTER ================= -->
+<!-- ========== MAIN CONTENT ========== -->
+<main id="mainContent">
+    <!-- Hero Section -->
+    <section class="hero-section" id="heroSection">
+        <div class="hero-grid">
+            <div class="hero-left hidden">
+                <h1>Nurturing your body through deep awareness.</h1>
+                <p>Precision tracking meets intuitive wisdom. AI-supported insights that honor your natural rhythm and help you build lasting healthy habits.</p>
+                <div class="hero-buttons">
+                    <a href="register.html" class="hero-btn-primary" id="journeyBtn">Begin Your Journey</a>
+                    <a href="aboutus.html" class="hero-btn-secondary" id="learnMoreBtn">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-right hidden">
+                <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=1600&auto=format" alt="Healthy fresh food bowl, Mediterranean diet" loading="eager">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="featuresSection">
+        <span class="section-label hidden">Core Features</span>
+        <div class="features-grid">
+            <div class="feature-card hidden">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+                        <circle cx="12" cy="13" r="4" />
+                    </svg>
+                </div>
+                <h3>AI Food Recognition</h3>
+                <p>Snap a photo of your meal and our AI instantly identifies food items, estimates portions, and calculates calories with precision.</p>
+            </div>
+            <div class="feature-card hidden">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                        <circle cx="9" cy="7" r="4" />
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                    </svg>
+                </div>
+                <h3>Expert Consultation</h3>
+                <p>Connect with certified nutritionists worldwide for personalized dietary guidance tailored to your health conditions and goals.</p>
+            </div>
+            <div class="feature-card hidden">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                        <polyline points="14 2 14 8 20 8" />
+                        <line x1="16" y1="13" x2="8" y2="13" />
+                        <line x1="16" y1="17" x2="8" y2="17" />
+                        <polyline points="10 9 9 9 8 9" />
+                    </svg>
+                </div>
+                <h3>Personalized Plans</h3>
+                <p>Receive dynamic nutrition plans that adapt to your progress, seasonal needs, and evolving health requirements.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-section">
+        <div class="cta-block hidden">
+            <h2>Ready to transform your relationship with food?</h2>
+            <p>Join thousands of users who have discovered a healthier, more mindful approach to nutrition.</p>
+            <a href="register.html" class="cta-btn" id="ctaFreeBtn">Get Started Free</a>
+        </div>
+    </section>
+</main>
+
+<!-- ========== FOOTER ========== -->
 <footer class="footer">
-  <div class="footer-container">
-
-    <div class="footer-col">
-      <h3>NutriAI</h3>
-      <p>Cultivating health, one meal at a time.</p>
+    <div class="footer-container">
+        <div class="footer-col">
+            <h3>NutriAI</h3>
+            <p>Cultivating health, one meal at a time.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Platform</h4>
+            <a href="aboutus.html">About Us</a>
+            <a href="blog.html">Blog</a>
+            <a href="contactus.html">Contact</a>
+        </div>
+        <div class="footer-col">
+            <h4>Services</h4>
+            <p>AI Calorie Tracking</p>
+            <p>Nutrition Consultation</p>
+            <p>Personalized Plans</p>
+        </div>
+        <div class="footer-col">
+            <h4>Legal</h4>
+            <p>Privacy Policy</p>
+            <p>Terms of Service</p>
+        </div>
     </div>
-
-    <div class="footer-col">
-      <h4>Platform</h4>
-      <a href="#">About Us</a>
-      <a href="#">Blog</a>
-      <a href="#">Contact</a>
+    <div class="footer-bottom">
+        © <span id="year"></span> NutriAI. All rights reserved.
     </div>
-
-    <div class="footer-col">
-      <h4>Services</h4>
-      <p>AI Calorie Tracking</p>
-      <p>Nutrition Consultation</p>
-      <p>Personalized Plans</p>
-    </div>
-
-    <div class="footer-col">
-      <h4>Legal</h4>
-      <p>Privacy Policy</p>
-      <p>Terms of Service</p>
-    </div>
-
-  </div>
-
-  <div class="footer-bottom">
-    © <span id="year"></span> NutriAI. All rights reserved.
-  </div>
 </footer>
 
 <script src="script.js"></script>
-
 </body>
 </html>
