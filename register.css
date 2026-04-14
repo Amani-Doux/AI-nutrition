@@ -1,23 +1,34 @@
-/* ===== register.css ===== */
+/* ===== BASE STYLES ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/* BASE STYLES */
 body {
   margin: 0;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: linear-gradient(135deg, #f7fdf9 0%, #eef5e9 100%);
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/* ===== REGISTER CONTAINER ===== */
+/* ===== REGISTER CONTAINER (with lift-up hover) ===== */
 .container {
   max-width: 520px;
-  margin: auto;
+  margin: 40px auto;
   padding: 40px 28px 60px;
   background: white;
   border-radius: 32px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-  margin-top: 40px;
-  margin-bottom: 40px;
+  transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+/* HOVER LIFT-UP EFFECT */
+.container:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 45px -12px rgba(0, 0, 0, 0.15);
 }
 
 /* Register Header with badge */
@@ -237,7 +248,7 @@ select {
   text-decoration: underline;
 }
 
-/* ===== NAVBAR STYLES (unchanged) ===== */
+/* ===== NAVBAR STYLES ===== */
 .navbar {
   background: white;
   box-shadow: 0 4px 20px rgba(0,0,0,0.05);
@@ -298,10 +309,6 @@ select {
 
 .links a:hover::after {
   width: 100%;
-}
-
-.active {
-  color: #16a34a;
 }
 
 .buttons {
@@ -384,7 +391,7 @@ select {
   }
 }
 
-/* ===== FOOTER STYLES (unchanged) ===== */
+/* ===== FOOTER STYLES ===== */
 .footer {
   margin-top: 60px;
   background: white;
@@ -460,7 +467,6 @@ select {
     margin: 20px;
     padding: 30px 20px;
   }
-  
   .row {
     flex-direction: column;
     gap: 20px;

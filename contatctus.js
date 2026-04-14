@@ -1,7 +1,28 @@
 // Initialize Lucide icons
 lucide.createIcons();
 
-// ----- REAL-TIME FORM VALIDATION + CHARACTER COUNTER -----
+// Mobile menu toggle
+function toggleMenu() {
+  const menu = document.getElementById("mobileMenu");
+  if (menu.style.display === "flex") {
+    menu.style.display = "none";
+  } else {
+    menu.style.display = "flex";
+  }
+}
+
+// Set current year
+document.getElementById("year").innerText = new Date().getFullYear();
+
+// Close mobile menu on resize
+window.addEventListener('resize', function() {
+  const menu = document.getElementById("mobileMenu");
+  if (window.innerWidth > 768 && menu.style.display === "flex") {
+    menu.style.display = "none";
+  }
+});
+
+// ===== FORM VALIDATION & SUBMISSION =====
 const nameInput = document.getElementById('name');
 const emailInput = document.getElementById('email');
 const messageInput = document.getElementById('message');
@@ -27,7 +48,6 @@ if (messageInput) {
   });
 }
 
-// Real-time validation
 function validateName() {
   const name = nameInput.value.trim();
   if (name === '') {
@@ -71,7 +91,6 @@ nameInput?.addEventListener('input', validateName);
 emailInput?.addEventListener('input', validateEmail);
 messageInput?.addEventListener('input', validateMessage);
 
-// ----- FORM SUBMIT WITH LOADING & SUCCESS -----
 async function sendMessage(event) {
   event.preventDefault();
 
@@ -85,16 +104,13 @@ async function sendMessage(event) {
     return;
   }
 
-  // Show loading state
   btnText.classList.add('hidden');
   btnLoader.classList.remove('hidden');
   submitBtn.disabled = true;
   statusPara.textContent = '';
 
-  // Simulate API call
   await new Promise(resolve => setTimeout(resolve, 1500));
 
-  // Store in localStorage (demo)
   const contactData = {
     name: nameInput.value.trim(),
     email: emailInput.value.trim(),
@@ -124,7 +140,7 @@ async function sendMessage(event) {
   }, 5000);
 }
 
-// ----- FAQ ACCORDION -----
+// FAQ Accordion
 document.querySelectorAll('.faq-question').forEach(question => {
   question.addEventListener('click', () => {
     const faqItem = question.parentElement;

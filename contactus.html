@@ -3,96 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - NutriTrack</title>
-
+  <title>Contact Us - NutriAI</title>
   <link rel="stylesheet" href="contactus.css">
-
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-
 <body>
-    <nav class="navbar">
+
+<!-- ========== NAVBAR ========== -->
+<nav class="navbar">
   <div class="container">
-
     <a href="#" class="logo">NutriAI</a>
-
-    <!-- Desktop links -->
     <div class="links">
       <a href="index.html">Home</a>
       <a href="aboutus.html">About Us</a>
       <a href="blog.html">Blog</a>
       <a href="contactus.html" class="active">Contact</a>
     </div>
-
-    <!-- Buttons -->
     <div class="buttons">
       <a href="login.html" class="btn">Sign In</a>
       <a href="register.html" class="btn btn-primary">Get Started</a>
     </div>
-
-    <!-- Mobile button -->
     <div class="menu-btn" onclick="toggleMenu()">☰</div>
-
   </div>
-
-  <!-- Mobile menu -->
   <div id="mobileMenu" class="mobile-menu">
-    <a href="#">Home</a>
-    <a href="#">About Us</a>
-    <a href="#">Blog</a>
-    <a href="#">Contact</a>
-
+    <a href="index.html">Home</a>
+    <a href="aboutus.html">About Us</a>
+    <a href="blog.html">Blog</a>
+    <a href="contactus.html">Contact</a>
     <div class="mobile-buttons">
-      <a href="#" class="btn">Sign In</a>
-      <a href="#" class="btn btn-primary">Get Started</a>
+      <a href="login.html" class="btn">Sign In</a>
+      <a href="register.html" class="btn btn-primary">Get Started</a>
     </div>
   </div>
 </nav>
-<div class="contact-container">
 
-  <!-- TITLE -->
+<!-- ========== MAIN CONTENT ========== -->
+<div class="contact-container">
   <div class="header">
     <h1>Contact Us</h1>
     <p>Have questions or need support? We'd love to hear from you.</p>
   </div>
 
-  <!-- MAIN GRID: CONTACT INFO + FORM -->
   <div class="contact-grid">
-
-    <!-- LEFT: CONTACT INFO + SOCIAL (map removed) -->
+    <!-- LEFT: INFO (Follow Us removed) -->
     <div class="info">
-
-      <!-- Email -->
       <div class="info-item">
         <div class="icon"><i data-lucide="mail"></i></div>
         <div><h3>Email</h3><p>support@nutritrack.com</p></div>
       </div>
-
-      <!-- Phone -->
       <div class="info-item">
         <div class="icon"><i data-lucide="phone"></i></div>
         <div><h3>Phone</h3><p>+213 555 123 456</p></div>
       </div>
-
-      <!-- Address -->
       <div class="info-item">
         <div class="icon"><i data-lucide="map-pin"></i></div>
         <div><h3>Address</h3><p>University of Constantine 2, Algeria</p></div>
       </div>
-
-      <!-- Follow Us (social icons only) -->
-      <div class="social-section">
-        <h3>Follow Us</h3>
-        <div class="social-icons">
-          <a href="#" class="social-icon" data-lucide="facebook" target="_blank"></a>
-          <a href="#" class="social-icon" data-lucide="instagram" target="_blank"></a>
-          <a href="#" class="social-icon" data-lucide="twitter" target="_blank"></a>
-          <a href="#" class="social-icon" data-lucide="linkedin" target="_blank"></a>
-        </div>
-      </div>
-
     </div>
 
-    <!-- RIGHT: CONTACT FORM (enhanced) -->
+    <!-- RIGHT: CONTACT FORM -->
     <div class="form-card">
       <form id="contactForm" onsubmit="sendMessage(event)">
         <label>Full Name *</label>
@@ -112,21 +81,20 @@
           <span id="btnText">Send Message</span>
           <span id="btnLoader" class="loader hidden"></span>
         </button>
-
         <p id="status"></p>
       </form>
     </div>
   </div>
 
-  <!-- FAQ SECTION (accordion) -->
+  <!-- FAQ SECTION -->
   <div class="faq-section">
     <h2>Frequently Asked Questions</h2>
     <div class="faq-item">
-      <div class="faq-question"> How quickly do you reply?</div>
+      <div class="faq-question">How quickly do you reply?</div>
       <div class="faq-answer">We typically respond within 24 hours on business days.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-question"> Can I book a consultation?</div>
+      <div class="faq-question">Can I book a consultation?</div>
       <div class="faq-answer">Absolutely! Use the contact form and our team will schedule a call.</div>
     </div>
     <div class="faq-item">
@@ -134,45 +102,19 @@
       <div class="faq-answer">Yes, NutriTrack is available on iOS and Android. More details on our homepage.</div>
     </div>
   </div>
-
 </div>
 
-
-
+<!-- ========== FOOTER ========== -->
 <footer class="footer">
   <div class="footer-container">
-
-    <div class="footer-col">
-      <h3>NutriAI</h3>
-      <p>Cultivating health, one meal at a time.</p>
-    </div>
-
-    <div class="footer-col">
-      <h4>Platform</h4>
-      <a href="aboutus.html">About Us</a>
-      <a href="blog.html">Blog</a>
-      <a href="contactus.html">Contact</a>
-    </div>
-
-    <div class="footer-col">
-      <h4>Services</h4>
-      <p>AI Calorie Tracking</p>
-      <p>Nutrition Consultation</p>
-      <p>Personalized Plans</p>
-    </div>
-
-    <div class="footer-col">
-      <h4>Legal</h4>
-      <p>Privacy Policy</p>
-      <p>Terms of Service</p>
-    </div>
-
+    <div class="footer-col"><h3>NutriAI</h3><p>Cultivating health, one meal at a time.</p></div>
+    <div class="footer-col"><h4>Platform</h4><a href="aboutus.html">About Us</a><a href="blog.html">Blog</a><a href="contactus.html">Contact</a></div>
+    <div class="footer-col"><h4>Services</h4><p>AI Calorie Tracking</p><p>Nutrition Consultation</p><p>Personalized Plans</p></div>
+    <div class="footer-col"><h4>Legal</h4><p>Privacy Policy</p><p>Terms of Service</p></div>
   </div>
-
-  <div class="footer-bottom">
-    © <span id="year"></span> NutriAI. All rights reserved.
-  </div>
+  <div class="footer-bottom">© <span id="year"></span> NutriAI. All rights reserved.</div>
 </footer>
-<script src="contactus.js"></script>
+
+<script src="contatctus.js"></script>
 </body>
 </html>

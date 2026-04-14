@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard - NutriAI</title>
   <link rel="stylesheet" href="admin.css">
-  <!-- Chart.js CDN for dashboard charts -->
+  <script src="https://unpkg.com/lucide@latest"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
@@ -16,7 +16,7 @@
     <div class="links">
       <a href="index.html">Home</a>
       <a href="aboutus.html">About Us</a>
-      <a href="blog.html" class="active">Blog</a>
+      <a href="blog.html">Blog</a>
       <a href="contactus.html">Contact</a>
     </div>
     <div class="buttons">
@@ -27,12 +27,12 @@
   </div>
   <div id="mobileMenu" class="mobile-menu">
     <a href="index.html">Home</a>
-    <a href="#">About Us</a>
-    <a href="#" class="active">Blog</a>
-    <a href="#">Contact</a>
+    <a href="aboutus.html">About Us</a>
+    <a href="blog.html">Blog</a>
+    <a href="contactus.html">Contact</a>
     <div class="mobile-buttons">
-      <a href="#" class="btn">Sign In</a>
-      <a href="#" class="btn btn-primary">Get Started</a>
+      <a href="login.html" class="btn">Sign In</a>
+      <a href="register.html" class="btn btn-primary">Get Started</a>
     </div>
   </div>
 </nav>
@@ -45,44 +45,100 @@
       <p>Super Administrator</p>
     </div>
     <nav>
-      <a href="#" class="active" data-page="dashboard">Dashboard</a>
-      <a href="#" data-page="users"> Manage Users</a>
-      <a href="#" data-page="nutritionists">Manage Nutritionists</a>
-      <a href="#" data-page="subscriptions"> Manage Subscriptions</a>
-      <a href="#" data-page="system">⚙️ System Management</a>
-      <a href="#" data-page="logout"> Logout</a>
+      <a href="#" class="active" data-page="dashboard">
+        <i data-lucide="layout-dashboard"></i>
+        <span>Dashboard</span>
+      </a>
+      <a href="#" data-page="users">
+        <i data-lucide="users"></i>
+        <span>Manage Users</span>
+      </a>
+      <a href="#" data-page="nutritionists">
+        <i data-lucide="stethoscope"></i>
+        <span>Manage Nutritionists</span>
+      </a>
+      <a href="#" data-page="subscriptions">
+        <i data-lucide="credit-card"></i>
+        <span>Manage Subscriptions</span>
+      </a>
+      <a href="#" data-page="system">
+        <i data-lucide="settings"></i>
+        <span>System Management</span>
+      </a>
+      <a href="#" data-page="logout">
+        <i data-lucide="log-out"></i>
+        <span>Logout</span>
+      </a>
     </nav>
   </aside>
 
   <main class="main-content">
     <!-- Dashboard -->
     <div id="dashboard-page" class="page active-page">
-      <div class="welcome-section"><h1>Admin Dashboard</h1><p>Monitor platform activity and manage resources</p></div>
+      <div class="welcome-section">
+        <h1>Admin Dashboard</h1>
+        <p>Monitor platform activity and manage resources</p>
+      </div>
       <div class="stats-grid">
-        <div class="stat-card" data-nav="users"><div class="stat-info"><span class="stat-value" id="totalUsers">0</span><span class="stat-label">Total Users</span></div></div>
-        <div class="stat-card" data-nav="nutritionists"><div class="stat-info"><span class="stat-value" id="totalNutritionists">0</span><span class="stat-label">Nutritionists</span></div></div>
-        <div class="stat-card" data-nav="subscriptions"><div class="stat-info"><span class="stat-value" id="activeSubscriptions">0</span><span class="stat-label">Active Subs</span></div></div>
-        <div class="stat-card"><div class="stat-info"><span class="stat-value" id="sysHealth">✓</span><span class="stat-label">System Status</span></div></div>
+        <div class="stat-card" data-nav="users">
+          <div class="stat-info">
+            <span class="stat-value" id="totalUsers">0</span>
+            <span class="stat-label">Total Users</span>
+          </div>
+        </div>
+        <div class="stat-card" data-nav="nutritionists">
+          <div class="stat-info">
+            <span class="stat-value" id="totalNutritionists">0</span>
+            <span class="stat-label">Nutritionists</span>
+          </div>
+        </div>
+        <div class="stat-card" data-nav="subscriptions">
+          <div class="stat-info">
+            <span class="stat-value" id="activeSubscriptions">0</span>
+            <span class="stat-label">Active Subs</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-info">
+            <span class="stat-value" id="sysHealth">✓</span>
+            <span class="stat-label">System Status</span>
+          </div>
+        </div>
       </div>
       <!-- Chart container -->
-      <div style="background:white; border-radius:20px; padding:20px; margin-bottom:30px;">
-        <canvas id="statsChart" width="400" height="200" style="max-height:250px"></canvas>
+      <div class="chart-container">
+        <canvas id="statsChart" width="400" height="200"></canvas>
       </div>
       <div class="dashboard-cards">
-        <div class="card" data-page="users"><h3>Manage Users</h3><button class="card-btn">Access</button></div>
-        <div class="card" data-page="nutritionists"><h3>Nutritionists</h3><button class="card-btn">Access</button></div>
-        <div class="card" data-page="subscriptions"><h3>Subscriptions</h3><button class="card-btn">Access</button></div>
-        <div class="card" data-page="system"><h3>System</h3><button class="card-btn">Access</button></div>
+        <div class="card" data-page="users">
+          <i data-lucide="users" class="card-icon"></i>
+          <h3>Manage Users</h3>
+          <button class="card-btn">Access</button>
+        </div>
+        <div class="card" data-page="nutritionists">
+          <i data-lucide="stethoscope" class="card-icon"></i>
+          <h3>Nutritionists</h3>
+          <button class="card-btn">Access</button>
+        </div>
+        <div class="card" data-page="subscriptions">
+          <i data-lucide="credit-card" class="card-icon"></i>
+          <h3>Subscriptions</h3>
+          <button class="card-btn">Access</button>
+        </div>
+        <div class="card" data-page="system">
+          <i data-lucide="settings" class="card-icon"></i>
+          <h3>System</h3>
+          <button class="card-btn">Access</button>
+        </div>
       </div>
     </div>
 
     <!-- Users -->
     <div id="users-page" class="page">
-      <div class="page-header"><h1>Manage Users</h1><div>
+      <div class="page-header">
+        <h1><i data-lucide="users"></i> Manage Users</h1>
         <button class="add-btn" id="addUserBtn">+ New User</button>
-        <button class="add-btn" id="exportUsersBtn" style="background:#4f46e5;">📎 Export CSV</button>
-    </div>
-</div>
+      </div>
       <div class="search-bar"><input type="text" id="searchUser" placeholder="Search by name or email..." class="search-input"></div>
       <div id="usersPagination" class="pagination-controls"></div>
       <div id="usersList"></div>
@@ -90,7 +146,10 @@
 
     <!-- Nutritionists -->
     <div id="nutritionists-page" class="page">
-      <div class="page-header"><h1>Manage Nutritionists</h1><div><button class="add-btn" id="addNutritionistBtn">+ Add Nutritionist</button><button class="add-btn" id="exportNutritionistsBtn" style="background:#4f46e5;">📎 Export CSV</button></div></div>
+      <div class="page-header">
+        <h1><i data-lucide="stethoscope"></i> Manage Nutritionists</h1>
+        <button class="add-btn" id="addNutritionistBtn">+ Add Nutritionist</button>
+      </div>
       <div class="search-bar"><input type="text" id="searchNutritionist" placeholder="Search nutritionist..." class="search-input"></div>
       <div id="nutritionistsPagination" class="pagination-controls"></div>
       <div id="nutritionistsList"></div>
@@ -98,7 +157,10 @@
 
     <!-- Subscriptions -->
     <div id="subscriptions-page" class="page">
-      <div class="page-header"><h1>Manage Subscriptions</h1><div><button class="add-btn" id="addSubscriptionBtn">+ New Subscription</button><button class="add-btn" id="exportSubscriptionsBtn" style="background:#4f46e5;">📎 Export CSV</button></div></div>
+      <div class="page-header">
+        <h1><i data-lucide="credit-card"></i> Manage Subscriptions</h1>
+        <button class="add-btn" id="addSubscriptionBtn">+ New Subscription</button>
+      </div>
       <div class="search-bar"><input type="text" id="searchSubscription" placeholder="Search by user or plan..." class="search-input"></div>
       <div id="subscriptionsPagination" class="pagination-controls"></div>
       <div id="subscriptionsList"></div>
@@ -106,10 +168,23 @@
 
     <!-- System -->
     <div id="system-page" class="page">
-      <div class="page-header"><h1>System Management</h1></div>
+      <div class="page-header">
+        <h1><i data-lucide="settings"></i> System Management</h1>
+      </div>
       <div class="system-grid">
-        <div class="config-card"><h3>⚙️ System Configuration</h3><form id="systemConfigForm"><div class="form-group"><label>Platform Name</label><input type="text" id="siteName"></div><div class="form-group"><label>Support Email</label><input type="email" id="supportEmail"></div><div class="form-group"><label>Maintenance Mode</label><select id="maintenanceMode"><option value="0">Off</option><option value="1">On</option></select></div><button type="submit" class="submit-btn">Save Settings</button></form></div>
-        <div class="logs-card"><h3>📋 System Logs <button id="clearLogsBtn" class="clear-logs-btn">Clear Logs</button></h3><div id="systemLogsContainer" style="max-height:300px; overflow-y:auto;"></div></div>
+        <div class="config-card">
+          <h3><i data-lucide="sliders"></i> System Configuration</h3>
+          <form id="systemConfigForm">
+            <div class="form-group"><label>Platform Name</label><input type="text" id="siteName"></div>
+            <div class="form-group"><label>Support Email</label><input type="email" id="supportEmail"></div>
+            <div class="form-group"><label>Maintenance Mode</label><select id="maintenanceMode"><option value="0">Off</option><option value="1">On</option></select></div>
+            <button type="submit" class="submit-btn">Save Settings</button>
+          </form>
+        </div>
+        <div class="logs-card">
+          <h3><i data-lucide="file-text"></i> System Logs <button id="clearLogsBtn" class="clear-logs-btn">Clear Logs</button></h3>
+          <div id="systemLogsContainer" style="max-height:300px; overflow-y:auto;"></div>
+        </div>
       </div>
     </div>
   </main>
@@ -118,40 +193,14 @@
 <!-- Modal -->
 <div id="formModal" class="modal"><div class="modal-content"><span class="close">&times;</span><div id="modal-form-container"></div></div></div>
 
-
 <footer class="footer">
   <div class="footer-container">
-
-    <div class="footer-col">
-      <h3>NutriAI</h3>
-      <p>Cultivating health, one meal at a time.</p>
-    </div>
-
-    <div class="footer-col">
-      <h4>Platform</h4>
-      <a href="aboutus.html">About Us</a>
-      <a href="blog.html">Blog</a>
-      <a href="contactus.html">Contact</a>
-    </div>
-
-    <div class="footer-col">
-      <h4>Services</h4>
-      <p>AI Calorie Tracking</p>
-      <p>Nutrition Consultation</p>
-      <p>Personalized Plans</p>
-    </div>
-
-    <div class="footer-col">
-      <h4>Legal</h4>
-      <p>Privacy Policy</p>
-      <p>Terms of Service</p>
-    </div>
-
+    <div class="footer-col"><h3>NutriAI</h3><p>Cultivating health, one meal at a time.</p></div>
+    <div class="footer-col"><h4>Platform</h4><a href="aboutus.html">About Us</a><a href="blog.html">Blog</a><a href="contactus.html">Contact</a></div>
+    <div class="footer-col"><h4>Services</h4><p>AI Calorie Tracking</p><p>Nutrition Consultation</p><p>Personalized Plans</p></div>
+    <div class="footer-col"><h4>Legal</h4><p>Privacy Policy</p><p>Terms of Service</p></div>
   </div>
-
-  <div class="footer-bottom">
-    © <span id="year"></span> NutriAI. All rights reserved.
-  </div>
+  <div class="footer-bottom">© <span id="year"></span> NutriAI. All rights reserved.</div>
 </footer>
 
 <script src="admin.js"></script>

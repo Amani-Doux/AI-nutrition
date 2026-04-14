@@ -1,31 +1,18 @@
 // Toggle password visibility
 function togglePassword() {
   const input = document.getElementById("password");
-  if (input.type === "password") {
-    input.type = "text";
-  } else {
-    input.type = "password";
-  }
+  input.type = input.type === "password" ? "text" : "password";
 }
 
-// Toggle confirm password visibility
 function toggleConfirmPassword() {
   const input = document.getElementById("confirmPassword");
-  if (input.type === "password") {
-    input.type = "text";
-  } else {
-    input.type = "password";
-  }
+  input.type = input.type === "password" ? "text" : "password";
 }
 
 // Toggle mobile menu
 function toggleMenu() {
   const menu = document.getElementById("mobileMenu");
-  if (menu.style.display === "flex") {
-    menu.style.display = "none";
-  } else {
-    menu.style.display = "flex";
-  }
+  menu.style.display = menu.style.display === "flex" ? "none" : "flex";
 }
 
 // Set current year in footer
@@ -40,8 +27,6 @@ window.addEventListener('resize', function() {
 });
 
 // ===== FORM VALIDATION & INTERACTIONS =====
-
-// Password strength checker
 const passwordInput = document.getElementById('password');
 const strengthBar = document.getElementById('strengthBar');
 const strengthText = document.getElementById('strengthText');
@@ -66,11 +51,9 @@ passwordInput.addEventListener('input', function() {
   strengthBar.style.background = result.color;
   strengthText.textContent = result.text;
   strengthText.style.color = result.color;
-  
   checkPasswordMatch();
 });
 
-// Confirm password matching
 const confirmInput = document.getElementById('confirmPassword');
 const matchMessage = document.getElementById('matchMessage');
 
@@ -108,101 +91,74 @@ submitBtn.addEventListener('click', function() {
   const confirm = confirmInput.value;
   const goal = document.getElementById('goal').value;
   
-  // Validation
   if (!firstName) {
     showError('Please enter your first name');
     document.getElementById('firstName').focus();
     return;
   }
-  
   if (!lastName) {
     showError('Please enter your last name');
     document.getElementById('lastName').focus();
     return;
   }
-  
   if (!email) {
     showError('Please enter your email address');
     document.getElementById('email').focus();
     return;
   }
-  
   if (!email.includes('@') || !email.includes('.')) {
     showError('Please enter a valid email address');
     document.getElementById('email').focus();
     return;
   }
-  
   if (!password) {
     showError('Please create a password');
     passwordInput.focus();
     return;
   }
-  
   if (password.length < 8) {
     showError('Password must be at least 8 characters');
     passwordInput.focus();
     return;
   }
-  
   if (password !== confirm) {
     showError('Passwords do not match');
     confirmInput.focus();
     return;
   }
-  
   if (!goal) {
     showError('Please select your health goal');
     document.getElementById('goal').focus();
     return;
   }
   
-  // Show loading state
   btnText.textContent = 'Creating Account';
   btnLoader.style.display = 'inline-block';
   submitBtn.disabled = true;
   
-  // Simulate API call
   setTimeout(() => {
     btnText.textContent = 'Create Account';
     btnLoader.style.display = 'none';
     submitBtn.disabled = false;
-    
     showSuccess('Account created successfully!');
   }, 1500);
 });
 
-// Helper function to show error
 function showError(message) {
   const existingError = document.querySelector('.toast-error');
   if (existingError) existingError.remove();
   
   const errorDiv = document.createElement('div');
   errorDiv.className = 'toast-error';
-  errorDiv.innerHTML = `
-    <div style="background: #ef4444; color: white; padding: 12px 24px; border-radius: 12px; position: fixed; top: 100px; left: 50%; transform: translateX(-50%); z-index: 9999; box-shadow: 0 4px 12px rgba(0,0,0,0.15); font-size: 14px; font-family: 'Inter', sans-serif;">
-      ${message}
-    </div>
-  `;
+  errorDiv.innerHTML = `<div style="background: #ef4444; color: white; padding: 12px 24px; border-radius: 12px; position: fixed; top: 100px; left: 50%; transform: translateX(-50%); z-index: 9999; box-shadow: 0 4px 12px rgba(0,0,0,0.15); font-size: 14px; font-family: 'Inter', sans-serif;">${message}</div>`;
   document.body.appendChild(errorDiv);
-  
-  setTimeout(() => {
-    errorDiv.remove();
-  }, 3000);
+  setTimeout(() => errorDiv.remove(), 3000);
 }
 
-// Helper function to show success
 function showSuccess(message) {
   const successDiv = document.createElement('div');
   successDiv.className = 'toast-success';
-  successDiv.innerHTML = `
-    <div style="background: #16a34a; color: white; padding: 12px 24px; border-radius: 12px; position: fixed; top: 100px; left: 50%; transform: translateX(-50%); z-index: 9999; box-shadow: 0 4px 12px rgba(0,0,0,0.15); font-size: 14px; font-family: 'Inter', sans-serif;">
-      ${message}
-    </div>
-  `;
+  successDiv.innerHTML = `<div style="background: #16a34a; color: white; padding: 12px 24px; border-radius: 12px; position: fixed; top: 100px; left: 50%; transform: translateX(-50%); z-index: 9999; box-shadow: 0 4px 12px rgba(0,0,0,0.15); font-size: 14px; font-family: 'Inter', sans-serif;">${message}</div>`;
   document.body.appendChild(successDiv);
-  
-  setTimeout(() => {
-    successDiv.remove();
-  }, 3000);
+  setTimeout(() => successDiv.remove(), 3000);
 }

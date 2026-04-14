@@ -9,15 +9,15 @@
 </head>
 <body>
 
-<!-- ========== NAVBAR (unchanged) ========== -->
+<!-- ========== NAVBAR ========== -->
 <nav class="navbar">
   <div class="nav-container">
     <a href="#" class="logo">NutriAI</a>
     <div class="links">
       <a href="index.html">Home</a>
-      <a href="#">About Us</a>
+      <a href="aboutus.html">About Us</a>
       <a href="blog.html">Blog</a>
-      <a href="#">Contact</a>
+      <a href="contactus.html">Contact</a>
     </div>
     <div class="buttons">
       <a href="login.html" class="btn-outline">Sign In</a>
@@ -39,7 +39,6 @@
 
 <!-- ========== MAIN REGISTER SECTION ========== -->
 <div class="container">
-  <!-- Header section -->
   <div class="register-header">
     <div class="badge">Welcome to NutriAI</div>
     <h1>Begin your journey</h1>
@@ -47,7 +46,6 @@
   </div>
 
   <form onsubmit="return false" id="registerForm">
-    <!-- First + Last Name row -->
     <div class="row">
       <div class="input-group">
         <label>First Name</label>
@@ -59,14 +57,12 @@
       </div>
     </div>
 
-    <!-- Email -->
     <div class="input-group">
       <label>Email Address</label>
       <input type="email" placeholder="you@example.com" id="email" />
       <div class="input-hint">We'll never share your email with anyone else.</div>
     </div>
 
-    <!-- Password with strength meter -->
     <div class="input-group">
       <label>Password</label>
       <div class="password-box">
@@ -80,7 +76,6 @@
       <div class="input-hint">Use 8+ characters with letters & numbers</div>
     </div>
 
-    <!-- Confirm Password -->
     <div class="input-group">
       <label>Confirm Password</label>
       <div class="password-box">
@@ -90,7 +85,6 @@
       <div class="match-message" id="matchMessage"></div>
     </div>
 
-    <!-- Health Goal -->
     <div class="input-group">
       <label>Health Goal</label>
       <select id="goal">
@@ -101,21 +95,19 @@
       </select>
     </div>
 
-    <!-- Create Account button -->
     <button type="submit" class="btn" id="submitBtn">
       <span class="btn-text">Create Account</span>
       <span class="btn-loader" style="display: none;"></span>
     </button>
   </form>
 
-  <!-- Already have an account? Sign in -->
   <p class="bottom-text">
     Already have an account?
     <a href="login.html">Sign in</a>
   </p>
 </div>
 
-<!-- ========== FOOTER (unchanged) ========== -->
+<!-- ========== FOOTER ========== -->
 <footer class="footer">
   <div class="footer-container">
     <div class="footer-col">
@@ -124,9 +116,9 @@
     </div>
     <div class="footer-col">
       <h4>Platform</h4>
-      <a href="#">About Us</a>
-      <a href="#">Blog</a>
-      <a href="#">Contact</a>
+      <a href="aboutus.html">About Us</a>
+      <a href="blog.html">Blog</a>
+      <a href="contactus.html">Contact</a>
     </div>
     <div class="footer-col">
       <h4>Services</h4>

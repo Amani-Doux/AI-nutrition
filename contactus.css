@@ -1,7 +1,18 @@
- 
+/* ========== RESET & GLOBAL ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f8fafc;
+  color: #1e293b;
+  line-height: 1.5;
+}
 
-/* NAVBAR */
+/* ========== NAVBAR ========== */
 .navbar {
   background: white;
   box-shadow: 0 4px 20px rgba(0,0,0,0.05);
@@ -19,16 +30,14 @@
   align-items: center;
 }
 
-/* LOGO */
 .logo {
   font-size: 24px;
   font-weight: 800;
   text-decoration: none;
-  color: #16a34a; /* green */
+  color: #16a34a;
   letter-spacing: 1px;
 }
 
-/* LINKS */
 .links {
   display: flex;
   gap: 35px;
@@ -45,7 +54,6 @@
   font-weight: 500;
 }
 
-/* hover animation underline */
 .links a::after {
   content: "";
   position: absolute;
@@ -65,12 +73,19 @@
   width: 100%;
 }
 
-/* active link */
 .active {
   color: #16a34a;
 }
 
-/* BUTTONS */
+.links a.active {
+  color: #16a34a;
+  font-weight: 700;
+}
+
+.links a.active::after {
+  width: 100%;
+}
+
 .buttons {
   display: flex;
   gap: 12px;
@@ -93,7 +108,6 @@
   transform: translateY(-2px);
 }
 
-/* PRIMARY BUTTON */
 .btn-primary {
   background: #16a34a;
   color: white;
@@ -106,7 +120,6 @@
   color: white;
 }
 
-/* MOBILE */
 .menu-btn {
   display: none;
   font-size: 26px;
@@ -134,51 +147,22 @@
   margin-top: 10px;
 }
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
   .links, .buttons {
     display: none;
   }
-
   .menu-btn {
     display: block;
   }
 }
-.links a.active {
-  color: #16a34a;
-  font-weight: 700;
-}
 
-/* underline ثابت للactive */
-.links a.active::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  width: 100%;
-  height: 2px;
- background: #16a34a;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: #f8fafc;
-  color: #1e293b;
-}
-
+/* ========== CONTACT PAGE MAIN STYLES ========== */
 .contact-container {
   max-width: 1200px;
   margin: auto;
   padding: 50px 24px;
 }
 
-/* header */
 .header {
   text-align: center;
   margin-bottom: 50px;
@@ -197,7 +181,7 @@ body {
   font-size: 16px;
 }
 
-/* grid */
+/* GRID */
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -205,7 +189,7 @@ body {
   margin-bottom: 60px;
 }
 
-/* LEFT: INFO */
+/* LEFT: INFO (Follow Us section removed) */
 .info {
   display: flex;
   flex-direction: column;
@@ -215,11 +199,21 @@ body {
   display: flex;
   gap: 16px;
   align-items: center;
+  background: white;
+  padding: 20px 24px;
+  border-radius: 24px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  cursor: pointer;
+}
+.info-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 30px -12px rgba(22, 163, 74, 0.2);
 }
 .icon {
   width: 50px;
   height: 50px;
-  background: #16a34a;
+  background: #ecfdf5;
   border-radius: 14px;
   display: flex;
   align-items: center;
@@ -239,46 +233,18 @@ body {
   color: #475569;
 }
 
-/* SOCIAL SECTION (kept, map removed) */
-.social-section {
-  margin-top: 10px;
-}
-.social-section h3 {
-  font-size: 18px;
-  margin-bottom: 12px;
-}
-.social-icons {
-  display: flex;
-  gap: 16px;
-}
-.social-icon {
-  width: 44px;
-  height: 44px;
-  background: #16a34a;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 0.2s;
-  color:#f1f5f9;
-  text-decoration: none;
-}
-.social-icon:hover {
-  background: #16a34a;
-  color: white;
-  transform: translateY(-3px);
-}
-.social-icon i {
-  width: 22px;
-  height: 22px;
-}
-
-/* RIGHT: FORM */
+/* RIGHT: FORM CARD */
 .form-card {
   background: white;
   padding: 32px;
   border-radius: 28px;
   box-shadow: 0 20px 35px -12px rgba(0,0,0,0.08);
+  transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  cursor: pointer;
+}
+.form-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 45px -12px rgba(22, 163, 74, 0.25);
 }
 form {
   display: flex;
@@ -353,12 +319,18 @@ button:hover {
   font-weight: 500;
 }
 
-/* FAQ SECTION (accordion) */
+/* FAQ SECTION */
 .faq-section {
   background: white;
   border-radius: 28px;
   padding: 40px 30px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+  transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  cursor: pointer;
+}
+.faq-section:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 35px -12px rgba(22, 163, 74, 0.2);
 }
 .faq-section h2 {
   text-align: center;
@@ -397,25 +369,12 @@ button:hover {
   padding-bottom: 16px;
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-}
-@media (max-width: 640px) {
-  .header h1 { font-size: 32px; }
-  .form-card { padding: 24px; }
-  .faq-section { padding: 24px; }
-}
-
+/* ========== FOOTER ========== */
 .footer {
-    position: static;
   margin-top: 60px;
   background: white;
   border-top: 1px solid #e5e5e5;
 }
-
 .footer-container {
   max-width: 1200px;
   margin: auto;
@@ -424,29 +383,22 @@ button:hover {
   grid-template-columns: repeat(4, 1fr);
   gap: 40px;
 }
-
-/* logo footer */
 .footer-col h3 {
   color: #16a34a;
   font-size: 22px;
   margin-bottom: 10px;
 }
-
 .footer-col p {
   color: #666;
   font-size: 14px;
   margin: 6px 0;
 }
-
-/* titles */
 .footer-col h4 {
   font-size: 12px;
   text-transform: uppercase;
   color: #888;
   margin-bottom: 12px;
 }
-
-/* links */
 .footer-col a {
   display: block;
   text-decoration: none;
@@ -454,13 +406,10 @@ button:hover {
   margin-bottom: 8px;
   transition: 0.3s;
 }
-
 .footer-col a:hover {
   color: #16a34a;
   padding-left: 5px;
 }
-
-/* bottom */
 .footer-bottom {
   text-align: center;
   padding: 18px;
@@ -469,20 +418,20 @@ button:hover {
   color: #888;
 }
 
-/* responsive */
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
 @media (max-width: 768px) {
   .footer-container {
     grid-template-columns: 1fr;
     text-align: center;
   }
 }
-
-
-
-
-
-
-
-
-
-
+@media (max-width: 640px) {
+  .header h1 { font-size: 32px; }
+  .form-card { padding: 24px; }
+  .faq-section { padding: 24px; }
+}

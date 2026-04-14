@@ -138,7 +138,7 @@ function updateChart() {
   });
 }
 
-// CRUD operations (same as before but with saveAll)
+// CRUD operations
 function addUser() { openModal('user', null); }
 function editUser(id) { openModal('user', users.find(u=>u.id===id)); }
 function deleteUser(id) { if(confirm("Delete user?")){ users = users.filter(u=>u.id!==id); subscriptions = subscriptions.filter(s=>s.userId!==id); saveAll(); renderUsers(); renderSubscriptions(); updateAdminStats(); addLog(`Deleted user ${id}`); showNotification("User deleted"); } }
@@ -188,23 +188,6 @@ function openModal(type, item) {
   };
 }
 function closeModal() { document.getElementById("formModal").style.display = "none"; }
-
-// Export CSV
-function exportToCSV(data, filename, columns) {
-  let csvRows = [columns.join(',')];
-  for(let row of data) {
-    const values = columns.map(col => `"${String(row[col]).replace(/"/g, '""')}"`);
-    csvRows.push(values.join(','));
-  }
-  const blob = new Blob([csvRows.join('\n')], { type: 'text/csv' });
-  const link = document.createElement('a');
-  link.href = URL.createObjectURL(blob);
-  link.download = filename;
-  link.click();
-}
-document.getElementById('exportUsersBtn')?.addEventListener('click', () => exportToCSV(users, 'users.csv', ['id','name','email','role']));
-document.getElementById('exportNutritionistsBtn')?.addEventListener('click', () => exportToCSV(nutritionists, 'nutritionists.csv', ['id','name','specialty','email','experience']));
-document.getElementById('exportSubscriptionsBtn')?.addEventListener('click', () => exportToCSV(subscriptions, 'subscriptions.csv', ['id','userName','plan','startDate','endDate','status']));
 
 // Dark mode
 const darkToggle = document.getElementById('darkModeToggle');
@@ -257,6 +240,8 @@ document.addEventListener("DOMContentLoaded", () => {
     saveAll(); updateAdminStats(); addLog("System config updated"); showNotification("Settings saved");
   });
   document.getElementById("clearLogsBtn")?.addEventListener("click", () => { systemLogs = []; saveAll(); renderSystemLogs(); addLog("Logs cleared"); showNotification("Logs cleared"); });
+  // Initialize Lucide icons
+  if (typeof lucide !== 'undefined') lucide.createIcons();
 });
 
 window.editUser = editUser; window.deleteUser = deleteUser;

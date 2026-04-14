@@ -109,6 +109,7 @@ body {
 .btn:hover {
     border-color: #16a34a;
     color: #16a34a;
+    transform: translateY(-2px);
 }
 
 .menu-btn {
@@ -225,6 +226,7 @@ body {
 .sidebar nav a:hover {
     background: #f1f5f9;
     color: #16a34a;
+    transform: translateX(4px);
 }
 
 .sidebar nav a.active {
@@ -273,13 +275,13 @@ body {
     align-items: center;
     gap: 16px;
     border: 1px solid #e2e8f0;
-    transition: all 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     cursor: pointer;
 }
 
 .stat-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 20px -12px rgba(22, 163, 74, 0.25);
     border-color: #16a34a;
 }
 
@@ -367,13 +369,14 @@ body {
     cursor: pointer;
     font-size: 14px;
     font-weight: 500;
-    transition: all 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     font-family: inherit;
 }
 
 .add-btn:hover {
     background: #15803d;
-    transform: translateY(-1px);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px -8px rgba(22, 163, 74, 0.4);
 }
 
 /* ========== DASHBOARD CARDS ========== */
@@ -389,14 +392,14 @@ body {
     border-radius: 20px;
     border: 1px solid #e2e8f0;
     text-align: center;
-    transition: all 0.25s ease;
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     cursor: pointer;
 }
 
 .card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-8px);
     border-color: #16a34a;
-    box-shadow: 0 12px 24px -12px rgba(0,0,0,0.1);
+    box-shadow: 0 20px 30px -12px rgba(22, 163, 74, 0.25);
 }
 
 .card-icon {
@@ -432,7 +435,7 @@ body {
     border: 1px solid #16a34a;
     border-radius: 8px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
     font-weight: 500;
     font-family: inherit;
     font-size: 13px;
@@ -441,6 +444,7 @@ body {
 .card-btn:hover {
     background: #16a34a;
     color: white;
+    transform: translateY(-2px);
 }
 
 @media (max-width: 1100px) {
@@ -498,12 +502,13 @@ body {
     align-items: center;
     flex-wrap: wrap;
     gap: 16px;
-    transition: all 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
 }
 
 .patient-item:hover, .consultation-item:hover, .plan-item:hover, .progress-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 20px -12px rgba(0, 0, 0, 0.1);
     border-color: #cbd5e1;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
 .patient-info h3, .consultation-info h3, .plan-info h3 {
@@ -532,7 +537,7 @@ body {
     cursor: pointer;
     font-size: 12px;
     font-weight: 500;
-    transition: all 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     font-family: inherit;
 }
 
@@ -543,7 +548,8 @@ body {
 
 .edit-btn:hover {
     background: #e0e7ff;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px -4px rgba(79, 70, 229, 0.3);
 }
 
 .delete-btn {
@@ -553,7 +559,8 @@ body {
 
 .delete-btn:hover {
     background: #fee2e2;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px -4px rgba(220, 38, 38, 0.3);
 }
 
 .view-btn {
@@ -563,7 +570,8 @@ body {
 
 .view-btn:hover {
     background: #d1fae5;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px -4px rgba(22, 163, 74, 0.3);
 }
 
 .update-progress-btn {
@@ -573,7 +581,8 @@ body {
 
 .update-progress-btn:hover {
     background: #fde68a;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px -4px rgba(217, 119, 6, 0.3);
 }
 
 /* ========== PROGRESS STYLES ========== */
@@ -713,14 +722,15 @@ body {
     cursor: pointer;
     font-size: 14px;
     font-weight: 500;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
     font-family: inherit;
     margin-top: 8px;
 }
 
 .submit-btn:hover {
     background: #15803d;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px -4px rgba(22, 163, 74, 0.4);
 }
 
 /* Clear fix for modal */
