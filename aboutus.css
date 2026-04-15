@@ -8,8 +8,8 @@
 body {
   margin: 0;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background: #fefefe;
-  color: #1e293b;
+  background: #fefae0;
+  color: #2c2a28;
   line-height: 1.5;
   display: flex;
   flex-direction: column;
@@ -38,7 +38,7 @@ body {
   font-size: 24px;
   font-weight: 800;
   text-decoration: none;
-  color: #16a34a;
+  color: #2d6a4f;
   letter-spacing: 1px;
 }
 
@@ -52,7 +52,7 @@ body {
 
 .links a {
   text-decoration: none;
-  color: #555;
+  color: #5c3a21;
   position: relative;
   transition: 0.3s;
   font-weight: 500;
@@ -65,12 +65,12 @@ body {
   bottom: -5px;
   width: 0%;
   height: 2px;
-  background: #16a34a;
+  background: #2d6a4f;
   transition: 0.3s;
 }
 
 .links a:hover {
-  color: #16a34a;
+  color: #2d6a4f;
 }
 
 .links a:hover::after {
@@ -78,7 +78,7 @@ body {
 }
 
 .links a.active {
-  color: #16a34a;
+  color: #2d6a4f;
   font-weight: 700;
 }
 
@@ -97,26 +97,26 @@ body {
   font-size: 13px;
   text-decoration: none;
   border: 1px solid #ddd;
-  color: #333;
+  color: #5c3a21;
   transition: 0.3s;
   font-weight: 500;
 }
 
 .btn:hover {
-  border-color: #16a34a;
-  color: #16a34a;
+  border-color: #2d6a4f;
+  color: #2d6a4f;
   transform: translateY(-2px);
 }
 
 .btn-primary {
-  background: #16a34a;
+  background: #2d6a4f;
   color: white;
   border: none;
-  box-shadow: 0 5px 15px rgba(22,163,74,0.3);
+  box-shadow: 0 5px 15px rgba(45,106,79,0.3);
 }
 
 .btn-primary:hover {
-  background: #128a3d;
+  background: #40916c;
   color: white;
 }
 
@@ -124,7 +124,7 @@ body {
   display: none;
   font-size: 26px;
   cursor: pointer;
-  color: #16a34a;
+  color: #2d6a4f;
 }
 
 .mobile-menu {
@@ -138,7 +138,7 @@ body {
 
 .mobile-menu a {
   text-decoration: none;
-  color: #555;
+  color: #5c3a21;
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 500;
@@ -199,7 +199,7 @@ body {
 
 /* MISSION + LIFT-UP HOVER */
 .mission {
-  background: linear-gradient(135deg, #4CAF50, #2e7d32);
+  background: linear-gradient(135deg, #2d6a4f, #1b4d2e);
   color: white;
   padding: 50px 40px;
   border-radius: 28px;
@@ -211,7 +211,7 @@ body {
 }
 .mission:hover {
   transform: translateY(-8px);
-  box-shadow: 0 25px 40px -12px rgba(22, 163, 74, 0.4);
+  box-shadow: 0 25px 40px -12px rgba(45,106,79,0.4);
 }
 .mission h2 {
   font-size: 32px;
@@ -243,12 +243,12 @@ body {
 }
 .card:hover {
   transform: translateY(-10px) !important;
-  box-shadow: 0 25px 40px -12px rgba(22, 163, 74, 0.25);
+  box-shadow: 0 25px 40px -12px rgba(45,106,79,0.25);
 }
 .icon {
   width: 70px;
   height: 70px;
-  background: #ecfdf5;
+  background: #faedcd;
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -259,10 +259,10 @@ body {
 .icon i {
   width: 32px;
   height: 32px;
-  color: #22c55e;
+  color: #2d6a4f;
 }
 .card:hover .icon {
-  background: #22c55e;
+  background: #2d6a4f;
 }
 .card:hover .icon i {
   color: white;
@@ -271,13 +271,14 @@ body {
   font-size: 20px;
   margin-bottom: 12px;
   font-weight: 600;
+  color: #2d6a4f;
 }
 .card p {
   font-size: 14px;
-  color: #5b6e8c;
+  color: #5c3a21;
 }
 
-/* TEAM SECTION (emoji replaced with leaf icon) */
+/* TEAM SECTION */
 .team {
   margin-bottom: 70px;
 }
@@ -291,12 +292,13 @@ body {
 .team-header i {
   width: 32px;
   height: 32px;
-  color: #16a34a;
+  color: #2d6a4f;
 }
 .team h2 {
   font-size: 32px;
   font-weight: 700;
   margin: 0;
+  color: #2d6a4f;
 }
 .team-grid {
   display: grid;
@@ -314,7 +316,7 @@ body {
 }
 .team-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 30px -10px rgba(22, 163, 74, 0.2);
+  box-shadow: 0 20px 30px -10px rgba(45,106,79,0.2);
 }
 .team-card img {
   width: 100%;
@@ -328,9 +330,10 @@ body {
 .team-card h3 {
   margin: 18px 0 6px;
   font-size: 20px;
+  color: #2d6a4f;
 }
 .team-card p {
-  color: #64748b;
+  color: #5c3a21;
   font-size: 14px;
   padding: 0 16px 20px;
 }
@@ -343,6 +346,7 @@ body {
 .who h2 {
   margin-bottom: 32px;
   font-size: 32px;
+  color: #2d6a4f;
 }
 .list {
   display: flex;
@@ -351,7 +355,7 @@ body {
   gap: 14px;
 }
 .item {
-  background: #eef5ef;
+  background: #faedcd;
   padding: 12px 24px;
   border-radius: 60px;
   font-size: 14px;
@@ -361,13 +365,13 @@ body {
 }
 .item:hover {
   transform: translateY(-2px);
-  background: #16a34a;
+  background: #2d6a4f;
   color: white;
 }
 
 /* CALL TO ACTION */
 .cta {
-  background: linear-gradient(115deg, #0f2b1d, #1b4d2e);
+  background: linear-gradient(115deg, #2d6a4f, #1b4d2e);
   border-radius: 28px;
   padding: 50px 30px;
   text-align: center;
@@ -379,7 +383,7 @@ body {
   margin-bottom: 16px;
 }
 .cta button {
-  background: #ffb74d;
+  background: #faedcd;
   border: none;
   padding: 14px 32px;
   border-radius: 40px;
@@ -388,9 +392,11 @@ body {
   cursor: pointer;
   margin-top: 20px;
   transition: 0.2s;
+  color: #2d6a4f;
 }
 .cta button:hover {
-  background: #ffa726;
+  background: #40916c;
+  color: white;
   transform: scale(1.02);
 }
 
@@ -408,12 +414,12 @@ body {
   gap: 40px;
 }
 .footer-col h3 {
-  color: #16a34a;
+  color: #2d6a4f;
   font-size: 22px;
   margin-bottom: 10px;
 }
 .footer-col p {
-  color: #666;
+  color: #5c3a21;
   font-size: 14px;
   margin: 6px 0;
 }
@@ -427,13 +433,13 @@ body {
 .footer-col a {
   display: block;
   text-decoration: none;
-  color: #555;
+  color: #5c3a21;
   margin-bottom: 8px;
   transition: 0.3s;
   font-size: 14px;
 }
 .footer-col a:hover {
-  color: #16a34a;
+  color: #2d6a4f;
   padding-left: 5px;
 }
 .footer-bottom {
@@ -441,7 +447,7 @@ body {
   padding: 18px;
   border-top: 1px solid #eee;
   font-size: 12px;
-  color: #888;
+  color: #5c3a21;
 }
 
 /* RESPONSIVE */

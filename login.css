@@ -7,7 +7,7 @@
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  
+  background: #fefae0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,7 +35,7 @@ body {
   font-size: 24px;
   font-weight: 800;
   text-decoration: none;
-  color: #16a34a;
+  color: #2d6a4f;
   letter-spacing: 1px;
 }
 
@@ -49,7 +49,7 @@ body {
 
 .links a {
   text-decoration: none;
-  color: #555;
+  color: #5c3a21;
   position: relative;
   transition: 0.3s;
   font-weight: 500;
@@ -62,12 +62,12 @@ body {
   bottom: -5px;
   width: 0%;
   height: 2px;
-  background: #16a34a;
+  background: #2d6a4f;
   transition: 0.3s;
 }
 
 .links a:hover {
-  color: #16a34a;
+  color: #2d6a4f;
 }
 
 .links a:hover::after {
@@ -87,26 +87,26 @@ body {
   font-size: 13px;
   text-decoration: none;
   border: 1px solid #ddd;
-  color: #333;
+  color: #5c3a21;
   transition: 0.3s;
   font-weight: 500;
 }
 
 .btn:hover {
-  border-color: #16a34a;
-  color: #16a34a;
+  border-color: #2d6a4f;
+  color: #2d6a4f;
   transform: translateY(-2px);
 }
 
 .btn-primary {
-  background: #16a34a;
+  background: #2d6a4f;
   color: white;
   border: none;
-  box-shadow: 0 5px 15px rgba(22,163,74,0.3);
+  box-shadow: 0 5px 15px rgba(45,106,79,0.3);
 }
 
 .btn-primary:hover {
-  background: #128a3d;
+  background: #40916c;
   color: white;
 }
 
@@ -114,7 +114,7 @@ body {
   display: none;
   font-size: 26px;
   cursor: pointer;
-  color: #16a34a;
+  color: #2d6a4f;
 }
 
 .mobile-menu {
@@ -127,7 +127,7 @@ body {
 
 .mobile-menu a {
   text-decoration: none;
-  color: #555;
+  color: #5c3a21;
   text-transform: uppercase;
 }
 
@@ -169,12 +169,11 @@ body {
 .header h1 {
   font-size: 32px;
   margin-bottom: 8px;
-  color: black;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  color: #2d6a4f;
 }
 
 .header p {
-  color: rgba(255,255,255,0.85);
+  color: #5c3a21;
   font-size: 14px;
 }
 
@@ -202,7 +201,7 @@ label {
   font-weight: 600;
   margin-top: 16px;
   margin-bottom: 4px;
-  color: #334155;
+  color: #5c3a21;
 }
 
 input {
@@ -216,8 +215,8 @@ input {
 
 input:focus {
   outline: none;
-  border-color: #4CAF50;
-  box-shadow: 0 0 0 3px rgba(76,175,80,0.1);
+  border-color: #2d6a4f;
+  box-shadow: 0 0 0 3px rgba(45,106,79,0.1);
 }
 
 .password-wrapper {
@@ -277,7 +276,7 @@ input:focus {
   align-items: center;
   gap: 8px;
   font-size: 13px;
-  color: #475569;
+  color: #5c3a21;
   cursor: pointer;
 }
 
@@ -290,7 +289,7 @@ input:focus {
 
 .forgot {
   font-size: 13px;
-  color: #4CAF50;
+  color: #2d6a4f;
   text-decoration: none;
   font-weight: 500;
 }
@@ -302,7 +301,7 @@ input:focus {
 button[type="submit"] {
   margin-top: 20px;
   padding: 14px;
-  background: linear-gradient(135deg, #4CAF50, #2e7d32);
+  background: linear-gradient(135deg, #2d6a4f, #1b4d2e);
   border: none;
   color: white;
   border-radius: 40px;
@@ -317,8 +316,9 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
+  background: #40916c;
   transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(76,175,80,0.3);
+  box-shadow: 0 8px 20px rgba(45,106,79,0.3);
 }
 
 .loader {
@@ -340,12 +340,12 @@ button[type="submit"]:hover {
 .switch {
   text-align: center;
   font-size: 13px;
-  color: #64748b;
+  color: #5c3a21;
   margin-top: 24px;
 }
 
 .switch a {
-  color: #4CAF50;
+  color: #2d6a4f;
   text-decoration: none;
   font-weight: 600;
 }
@@ -383,13 +383,13 @@ button[type="submit"]:hover {
 }
 
 .footer-col h3 {
-  color: #16a34a;
+  color: #2d6a4f;
   font-size: 22px;
   margin-bottom: 10px;
 }
 
 .footer-col p {
-  color: #666;
+  color: #5c3a21;
   font-size: 14px;
   margin: 6px 0;
 }
@@ -404,13 +404,13 @@ button[type="submit"]:hover {
 .footer-col a {
   display: block;
   text-decoration: none;
-  color: #555;
+  color: #5c3a21;
   margin-bottom: 8px;
   transition: 0.3s;
 }
 
 .footer-col a:hover {
-  color: #16a34a;
+  color: #2d6a4f;
   padding-left: 5px;
 }
 
@@ -419,7 +419,7 @@ button[type="submit"]:hover {
   padding: 18px;
   border-top: 1px solid #eee;
   font-size: 12px;
-  color: #888;
+  color: #5c3a21;
 }
 
 @media (max-width: 768px) {
