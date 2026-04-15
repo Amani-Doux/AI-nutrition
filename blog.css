@@ -5,14 +5,65 @@
 }
 
 body {
-  font-family: 'Inter', "Arial", sans-serif;
-  background: #f7fdf9;
-  color: #1a2e1f;
+  font-family: 'Inter', sans-serif;
+  background: #fefae0;
+  color: #2c2a28;
   scroll-behavior: smooth;
+  transition: background 0.3s, color 0.2s;
 }
 
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap');
+
+/* Dark mode styles */
+body.dark-mode {
+  background: #1a1a1a;
+  color: #e0e0e0;
+}
+
+body.dark-mode .navbar,
+body.dark-mode .footer {
+  background: #2c2c2c;
+  border-color: #444;
+}
+
+body.dark-mode .blog-card {
+  background: linear-gradient(135deg, #2c3a2c 0%, #1e2a1e 100%);
+  border-color: #3a4a3a;
+}
+
+body.dark-mode .blog-card .card-title {
+  color: #e0e0e0;
+}
+
+body.dark-mode .blog-card .card-excerpt {
+  color: #bbb;
+}
+
+body.dark-mode .blog-card:hover .card-title {
+  color: #40916c;
+}
+
+body.dark-mode .blog-header .subhead {
+  background: #3a3a3a;
+  color: #ddd;
+  border-left-color: #2d6a4f;
+}
+
+body.dark-mode .meta-info {
+  color: #999;
+}
+
+body.dark-mode .footer-col p,
+body.dark-mode .footer-col a,
+body.dark-mode .footer-bottom {
+  color: #bbb;
+}
+
+body.dark-mode .footer-col h4 {
+  color: #999;
+}
 
 /* ---------- NAVBAR ---------- */
 .navbar {
@@ -21,6 +72,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
+  transition: background 0.3s;
 }
 
 .container {
@@ -33,11 +85,17 @@ body {
 }
 
 .logo {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 800;
   text-decoration: none;
-  color: #16a34a;
+  color: #2d6a4f;
   letter-spacing: 1px;
+  font-family: 'Playfair Display', serif;
+  transition: transform 0.2s;
+}
+
+.logo:hover {
+  transform: scale(1.02);
 }
 
 .links {
@@ -50,10 +108,11 @@ body {
 
 .links a {
   text-decoration: none;
-  color: #555;
+  color: #5c3a21;
   position: relative;
-  transition: 0.3s;
+  transition: color 0.2s, transform 0.2s;
   font-weight: 500;
+  cursor: pointer;
 }
 
 .links a::after {
@@ -63,12 +122,13 @@ body {
   bottom: -5px;
   width: 0%;
   height: 2px;
-  background: #16a34a;
+  background: #2d6a4f;
   transition: 0.3s;
 }
 
 .links a:hover {
-  color: #16a34a;
+  color: #2d6a4f;
+  transform: translateY(-1px);
 }
 
 .links a:hover::after {
@@ -76,11 +136,11 @@ body {
 }
 
 .active {
-  color: #16a34a;
+  color: #2d6a4f;
 }
 
 .links a.active {
-  color: #16a34a;
+  color: #2d6a4f;
   font-weight: 700;
 }
 
@@ -91,62 +151,80 @@ body {
   bottom: -5px;
   width: 100%;
   height: 2px;
-  background: #16a34a;
+  background: #2d6a4f;
 }
 
 .buttons {
   display: flex;
   gap: 12px;
+  align-items: center;
 }
 
 .btn {
   padding: 9px 18px;
-  border-radius: 25px;
+  border-radius: 40px;
   font-size: 13px;
   text-decoration: none;
   border: 1px solid #ddd;
-  color: #333;
-  transition: 0.3s;
+  color: #5c3a21;
+  transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
   font-weight: 500;
+  background: transparent;
+  cursor: pointer;
 }
 
 .btn:hover {
-  border-color: #16a34a;
-  color: #16a34a;
+  border-color: #2d6a4f;
+  color: #2d6a4f;
   transform: translateY(-2px);
 }
 
 .btn-primary {
-  background: #16a34a;
+  background: #2d6a4f;
   color: white;
   border: none;
-  box-shadow: 0 5px 15px rgba(22,163,74,0.3);
+  box-shadow: 0 5px 15px rgba(45,106,79,0.25);
 }
 
 .btn-primary:hover {
-  background: #128a3d;
+  background: #40916c;
   color: white;
+}
+
+.dark-mode-btn {
+  background: #f0f0f0;
+  border: none;
+  border-radius: 30px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.dark-mode-btn:hover {
+  transform: scale(1.05);
+  background: #e0e0e0;
 }
 
 .menu-btn {
   display: none;
-  font-size: 26px;
+  font-size: 28px;
   cursor: pointer;
-  color: #16a34a;
+  color: #2d6a4f;
 }
 
 .mobile-menu {
   display: none;
   flex-direction: column;
-  padding: 15px 24px;
-  gap: 12px;
+  padding: 20px 24px;
+  gap: 15px;
   background: white;
   border-top: 1px solid #eef2ef;
 }
 
 .mobile-menu a {
   text-decoration: none;
-  color: #555;
+  color: #5c3a21;
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 500;
@@ -154,8 +232,9 @@ body {
 
 .mobile-buttons {
   display: flex;
-  gap: 10px;
-  margin-top: 10px;
+  gap: 12px;
+  margin-top: 8px;
+  flex-wrap: wrap;
 }
 
 @media (max-width: 768px) {
@@ -186,24 +265,23 @@ body {
   font-size: 3.2rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  background: linear-gradient(135deg, #166534 0%, #16a34a 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+  font-family: 'Playfair Display', serif;
+  color: #2d6a4f;
   margin-bottom: 16px;
 }
 
 .blog-header .subhead {
   font-size: 1.1rem;
-  color: #4a5b4a;
+  color: #5c3a21;
   line-height: 1.5;
-  border-left: 4px solid #16a34a;
+  border-left: 4px solid #2d6a4f;
   padding-left: 20px;
   margin-top: 8px;
-  background: #effaf2;
+  background: #f0f7ec;
   display: inline-block;
   padding: 10px 24px;
   border-radius: 60px;
+  font-family: 'Inter', sans-serif;
 }
 
 .blog-grid {
@@ -213,28 +291,27 @@ body {
   margin-top: 16px;
 }
 
-/* BLOG CARD STYLES - WITH SMOOTH HOVER ANIMATION */
+/* BLOG CARD STYLES - ALL SOFT GREEN */
 .blog-card {
-  background: white;
-  border-radius: 28px;
+  background: linear-gradient(135deg, #f0f7ec 0%, #e8f0e4 100%);
+  border-radius: 32px;
   overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02), 0 2px 6px rgba(0, 0, 0, 0.03);
-  border: 1px solid #e9f0e9;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+  border: 1px solid #dce8d4;
   display: flex;
   flex-direction: column;
   animation: fadeUp 0.5s ease-out forwards;
   opacity: 0;
   cursor: pointer;
-  
-  /* HOVER TRANSITION - smooth animation for all properties */
-  transition: all 0.4s cubic-bezier(0.2, 0, 0, 1);
+  transition: all 0.4s cubic-bezier(0.2, 0.95, 0.4, 1.1);
 }
 
-/* THIS IS THE HOVER EFFECT - card lifts up, scales slightly, and gets shadow */
+/* HOVER EFFECT - all cards get brighter green */
 .blog-card:hover {
-  transform: translateY(-12px) scale(1.02);
-  box-shadow: 0 30px 45px -15px rgba(22, 163, 74, 0.25);
-  border-color: #b8dec0;
+  transform: translateY(-12px);
+  box-shadow: 0 30px 40px -18px rgba(45,106,79,0.25);
+  border-color: #2d6a4f;
+  background: linear-gradient(135deg, #e8f4e0 0%, #dcecd4 100%);
 }
 
 /* Image zoom effect on hover */
@@ -244,14 +321,32 @@ body {
 
 /* Title color change on hover */
 .blog-card:hover .card-title {
-  color: #16a34a;
+  color: #2d6a4f;
 }
 
-/* Category badge subtle change on hover */
+/* Category badge styling */
+.img-category {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(4px);
+  padding: 5px 14px;
+  border-radius: 40px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #2d6a4f;
+  border: 1px solid #d4ecd9;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
 .blog-card:hover .img-category {
-  background: #16a34a;
+  background: #2d6a4f;
   color: white;
-  border-color: #16a34a;
+  border-color: #2d6a4f;
 }
 
 /* Animation delays for each card */
@@ -276,24 +371,6 @@ body {
   transition: transform 0.5s ease-out;
 }
 
-.img-category {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(4px);
-  padding: 5px 14px;
-  border-radius: 40px;
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: #16a34a;
-  border: 1px solid #d4ecd9;
-  transition: all 0.3s ease;
-  z-index: 2;
-}
-
 .card-content {
   padding: 24px 24px 28px 24px;
   flex: 1;
@@ -305,7 +382,7 @@ body {
   gap: 12px;
   margin-bottom: 14px;
   font-size: 0.75rem;
-  color: #6b7c6b;
+  color: #5c3a21;
   font-weight: 500;
 }
 
@@ -318,14 +395,14 @@ body {
 .meta-date svg {
   width: 14px;
   height: 14px;
-  stroke: #16a34a;
+  stroke: #2d6a4f;
   stroke-width: 2;
   fill: none;
   transition: stroke 0.3s ease;
 }
 
 .blog-card:hover .meta-date svg {
-  stroke: #0d7937;
+  stroke: #40916c;
 }
 
 .card-title {
@@ -333,25 +410,27 @@ body {
   font-weight: 700;
   line-height: 1.3;
   margin-bottom: 12px;
-  color: #1f2e1c;
+  color: #2c2a28;
   transition: color 0.3s ease;
+  font-family: 'Playfair Display', serif;
 }
 
 .card-excerpt {
   font-size: 0.9rem;
   line-height: 1.5;
-  color: #4e6152;
+  color: #5c3a21;
   margin-bottom: 0;
   transition: color 0.3s ease;
+  font-family: 'Inter', sans-serif;
 }
 
 .blog-card:hover .card-excerpt {
-  color: #3a4a3a;
+  color: #2c2a28;
 }
 
 /* ---------- FOOTER ---------- */
 .footer {
-  margin-top: 60px;
+  margin-top: 70px;
   background: white;
   border-top: 1px solid #e5e5e5;
 }
@@ -366,15 +445,17 @@ body {
 }
 
 .footer-col h3 {
-  color: #16a34a;
-  font-size: 22px;
-  margin-bottom: 10px;
+  color: #2d6a4f;
+  font-size: 24px;
+  margin-bottom: 12px;
+  font-family: 'Playfair Display', serif;
 }
 
 .footer-col p {
-  color: #666;
+  color: #5c3a21;
   font-size: 14px;
   margin: 6px 0;
+  font-family: 'Inter', sans-serif;
 }
 
 .footer-col h4 {
@@ -383,20 +464,22 @@ body {
   color: #888;
   margin-bottom: 12px;
   letter-spacing: 1px;
+  font-family: 'Inter', sans-serif;
 }
 
 .footer-col a {
   display: block;
   text-decoration: none;
-  color: #555;
+  color: #5c3a21;
   margin-bottom: 8px;
-  transition: 0.3s;
+  transition: 0.2s;
   font-size: 14px;
+  font-family: 'Inter', sans-serif;
 }
 
 .footer-col a:hover {
-  color: #16a34a;
-  padding-left: 5px;
+  color: #2d6a4f;
+  transform: translateX(6px);
 }
 
 .footer-bottom {
@@ -404,7 +487,8 @@ body {
   padding: 18px;
   border-top: 1px solid #eee;
   font-size: 12px;
-  color: #888;
+  color: #5c3a21;
+  font-family: 'Inter', sans-serif;
 }
 
 @media (max-width: 768px) {
@@ -420,8 +504,12 @@ body {
     gap: 28px;
   }
   
-  /* Slightly smaller hover effect on mobile */
   .blog-card:hover {
-    transform: translateY(-6px) scale(1.01);
+    transform: translateY(-6px);
+  }
+  
+  .footer-col a:hover {
+    transform: translateX(0);
+    padding-left: 0;
   }
 }
