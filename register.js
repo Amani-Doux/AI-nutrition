@@ -9,16 +9,13 @@ function toggleConfirmPassword() {
   input.type = input.type === "password" ? "text" : "password";
 }
 
-// Toggle mobile menu
 function toggleMenu() {
   const menu = document.getElementById("mobileMenu");
   menu.style.display = menu.style.display === "flex" ? "none" : "flex";
 }
 
-// Set current year in footer
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// Close mobile menu on window resize
 window.addEventListener('resize', function() {
   const menu = document.getElementById("mobileMenu");
   if (window.innerWidth > 768 && menu.style.display === "flex") {
@@ -26,7 +23,7 @@ window.addEventListener('resize', function() {
   }
 });
 
-// ===== FORM VALIDATION & INTERACTIONS =====
+// ===== PASSWORD STRENGTH =====
 const passwordInput = document.getElementById('password');
 const strengthBar = document.getElementById('strengthBar');
 const strengthText = document.getElementById('strengthText');
@@ -54,6 +51,7 @@ passwordInput.addEventListener('input', function() {
   checkPasswordMatch();
 });
 
+// ===== PASSWORD MATCH =====
 const confirmInput = document.getElementById('confirmPassword');
 const matchMessage = document.getElementById('matchMessage');
 
@@ -78,12 +76,24 @@ function checkPasswordMatch() {
 
 confirmInput.addEventListener('input', checkPasswordMatch);
 
-// Form validation and submission
+// ===== BACKEND API =====
+const API_BASE = 'http://127.0.0.1:8000/api';
+
+async function registerUser(userData) {
+  const response = await fetch(`${API_BASE}/auth/register/`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(userData)
+  });
+  return await response.json();
+}
+
+// ===== FORM SUBMISSION =====
 const submitBtn = document.getElementById('submitBtn');
-const btnText = submitBtn.querySelector('.btn-text');
+const btnTextSpan = submitBtn.querySelector('.btn-text');
 const btnLoader = submitBtn.querySelector('.btn-loader');
 
-submitBtn.addEventListener('click', function() {
+submitBtn.addEventListener('click', async function() {
   const firstName = document.getElementById('firstName').value.trim();
   const lastName = document.getElementById('lastName').value.trim();
   const email = document.getElementById('email').value.trim();
@@ -91,74 +101,105 @@ submitBtn.addEventListener('click', function() {
   const confirm = confirmInput.value;
   const goal = document.getElementById('goal').value;
   
-  if (!firstName) {
-    showError('Please enter your first name');
-    document.getElementById('firstName').focus();
-    return;
-  }
-  if (!lastName) {
-    showError('Please enter your last name');
-    document.getElementById('lastName').focus();
-    return;
-  }
-  if (!email) {
-    showError('Please enter your email address');
-    document.getElementById('email').focus();
-    return;
-  }
-  if (!email.includes('@') || !email.includes('.')) {
-    showError('Please enter a valid email address');
-    document.getElementById('email').focus();
-    return;
-  }
-  if (!password) {
-    showError('Please create a password');
-    passwordInput.focus();
-    return;
-  }
-  if (password.length < 8) {
-    showError('Password must be at least 8 characters');
-    passwordInput.focus();
-    return;
-  }
-  if (password !== confirm) {
-    showError('Passwords do not match');
-    confirmInput.focus();
-    return;
-  }
-  if (!goal) {
-    showError('Please select your health goal');
-    document.getElementById('goal').focus();
-    return;
-  }
+  if (!firstName) { showError('Please enter your first name'); return; }
+  if (!lastName) { showError('Please enter your last name'); return; }
+  if (!email) { showError('Please enter your email address'); return; }
+  if (!email.includes('@')) { showError('Enter a valid email'); return; }
+  if (!password) { showError('Please create a password'); return; }
+  if (password.length < 8) { showError('Password must be at least 8 characters'); return; }
+  if (password !== confirm) { showError('Passwords do not match'); return; }
+  if (!goal) { showError('Please select your health goal'); return; }
   
-  btnText.textContent = 'Creating Account';
+  btnTextSpan.textContent = 'Creating Account...';
   btnLoader.style.display = 'inline-block';
   submitBtn.disabled = true;
   
-  setTimeout(() => {
-    btnText.textContent = 'Create Account';
+  // Prepare data for backend (matching the serializer)
+  const userData = {
+    username: `${firstName.toLowerCase()}${lastName.toLowerCase()}`,
+    password: password,
+    password2: password,  // ← IMPORTANT: confirm password field
+    email: email,
+    role: 'client',
+    full_name: `${firstName} ${lastName}`
+  };
+  
+  console.log('Sending data:', userData);
+  
+  try {
+    const result = await registerUser(userData);
+    console.log('Response:', result);
+    
+    if (result.success !== false && result.data) {
+      showSuccess('Account created! Redirecting to dashboard...');
+      
+      // Auto login after registration
+      setTimeout(async () => {
+        try {
+          const loginResponse = await fetch(`${API_BASE}/auth/login/`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email, password: password })
+          });
+          
+          const loginData = await loginResponse.json();
+          
+          let token = null;
+          let role = null;
+          
+          if (loginData.access) {
+            token = loginData.access;
+            role = loginData.role;
+          } else if (loginData.data && loginData.data.access) {
+            token = loginData.data.access;
+            role = loginData.data.role;
+          }
+          
+          if (token) {
+            localStorage.setItem('access_token', token);
+            localStorage.setItem('user_role', role);
+            window.location.href = 'client.html';
+          } else {
+            window.location.href = 'login.html';
+          }
+        } catch (error) {
+          window.location.href = 'login.html';
+        }
+      }, 1000);
+      
+    } else {
+      let errorMsg = 'Registration failed';
+      if (result.error) {
+        if (typeof result.error === 'object') {
+          errorMsg = Object.values(result.error).flat()[0];
+        } else {
+          errorMsg = result.error;
+        }
+      }
+      showError(errorMsg);
+      btnTextSpan.textContent = 'Create Account';
+      btnLoader.style.display = 'none';
+      submitBtn.disabled = false;
+    }
+  } catch (error) {
+    console.error('Registration error:', error);
+    showError('Cannot connect to server');
+    btnTextSpan.textContent = 'Create Account';
     btnLoader.style.display = 'none';
     submitBtn.disabled = false;
-    showSuccess('Account created successfully!');
-  }, 1500);
+  }
 });
 
 function showError(message) {
-  const existingError = document.querySelector('.toast-error');
-  if (existingError) existingError.remove();
-  
-  const errorDiv = document.createElement('div');
-  errorDiv.className = 'toast-error';
-  errorDiv.innerHTML = `<div style="background: #ef4444; color: white; padding: 12px 24px; border-radius: 12px; position: fixed; top: 100px; left: 50%; transform: translateX(-50%); z-index: 9999; box-shadow: 0 4px 12px rgba(0,0,0,0.15); font-size: 14px; font-family: 'Inter', sans-serif;">${message}</div>`;
-  document.body.appendChild(errorDiv);
-  setTimeout(() => errorDiv.remove(), 3000);
+  const div = document.createElement('div');
+  div.innerHTML = `<div style="background:#ef4444;color:white;padding:12px 24px;border-radius:12px;position:fixed;top:100px;left:50%;transform:translateX(-50%);z-index:9999;">${message}</div>`;
+  document.body.appendChild(div);
+  setTimeout(() => div.remove(), 3000);
 }
 
 function showSuccess(message) {
-  const successDiv = document.createElement('div');
-  successDiv.className = 'toast-success';
-  successDiv.innerHTML = `<div style="background: #16a34a; color: white; padding: 12px 24px; border-radius: 12px; position: fixed; top: 100px; left: 50%; transform: translateX(-50%); z-index: 9999; box-shadow: 0 4px 12px rgba(0,0,0,0.15); font-size: 14px; font-family: 'Inter', sans-serif;">${message}</div>`;
-  document.body.appendChild(successDiv);
-  setTimeout(() => successDiv.remove(), 3000);
+  const div = document.createElement('div');
+  div.innerHTML = `<div style="background:#16a34a;color:white;padding:12px 24px;border-radius:12px;position:fixed;top:100px;left:50%;transform:translateX(-50%);z-index:9999;">${message}</div>`;
+  document.body.appendChild(div);
+  setTimeout(() => div.remove(), 3000);
 }
